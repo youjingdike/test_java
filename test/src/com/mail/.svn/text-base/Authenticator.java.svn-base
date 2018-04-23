@@ -1,0 +1,79 @@
+package com.gwdc.com.util.mail;
+
+import java.util.Properties;
+
+import javax.mail.MessagingException;
+import javax.mail.NoSuchProviderException;
+import javax.mail.Session;
+import javax.mail.Store;
+import javax.mail.Transport;
+
+import com.cnpc.jcdp.log.ILog;
+import com.cnpc.jcdp.log.LogFactory;
+import com.gwdc.com.util.PublicUtil;
+
+public class Authenticator {
+  private Store store;
+  protected ILog log = LogFactory.getLogger(this.getClass());
+  public Authenticator()
+  {
+  }
+
+  private boolean connect(String user, String password) {
+      if(user != null && !user.equals("") && password != null && !password.equals("")) {
+          Properties props = new PublicUtil().loadProperties("mail.properties");
+          Session mailSession = Session.getInstance(props, null);
+          Transport transport = null;
+          try {
+            transport = mailSession.getTransport("smtp");
+          } catch (NoSuchProviderException e1) {
+            e1.printStackTrace();
+            log.error(e1);
+            return false;
+          }
+          try {
+            transport.connect((String) props.get("mail.smtp.host"), user, password);
+            log.info((String) props.get("mail.smtp.host"));
+          } catch (MessagingException e) {
+            e.printStackTrace();
+            log.error(e);
+            return false;
+          } finally {
+            if (transport!=null) {
+              try {
+                transport.close();
+              } catch (MessagingException e) {
+                e.printStackTrace();
+                log.error(e);
+              }
+            }
+          }
+          return true;
+      } else {
+          return false;
+      }
+  }
+
+  private void close()
+  {
+      try
+      {
+          if(store != null && store.isConnected())
+              store.close();
+      }
+      catch(MessagingException e) { }
+  }
+
+  public boolean authenticate(String user, String password)
+  {
+      if(connect(user, password))
+      {
+          close();
+          return true;
+      } else
+      {
+          return false;
+      }
+  }
+
+}
