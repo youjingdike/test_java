@@ -4,6 +4,8 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
+import org.junit.Test;
+
 import com.vo.Person;
 
 public class TestReflection {
@@ -69,7 +71,7 @@ public class TestReflection {
 	 */
 	private static void testMethod(){
 		try {
-			Class c = Class.forName("com.bjsxt.softrc.test.Person");
+			Class c = Class.forName("com.vo.Person");
 			Method[] ms = c.getMethods();
 			for (int i = 0; i < ms.length; i++) {
 				Method method = ms[i];
@@ -127,11 +129,31 @@ public class TestReflection {
 		System.out.println(c.isInstance(p));
 		System.out.println(c2.isInstance(p));
 	}
+	
+	/**
+	 * 测试某个对象是否为某个类的对象
+	 * @throws SecurityException 
+	 * @throws Exception 
+	 */
+	private static void testCast(Object obj) throws Exception{
+		System.out.println(obj.getClass());
+		Field f = obj.getClass().getDeclaredField("name"); //xxx是希望获取的属性
+		f.setAccessible(true);
+		Object value = f.get(obj);
+		System.out.println(value);
+	}
 	public static void main(String[] args) {
 //		testGetClassObject();
-		testField();
-//		testMethod();
+//		testField();
+		testMethod();
 //		testConstructor();
 //		testIsInstance();
+		try {
+			testCast(new Person("sdfsd"));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 }
