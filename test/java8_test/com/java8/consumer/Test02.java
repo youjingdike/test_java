@@ -16,14 +16,14 @@ public class Test02 {
             }  
         });  
   
-        
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         // π”√Lambda  
         List<Integer> numbers2 = Arrays.asList(11, 21, 31, 41, 51, 61, 71, 81, 91, 110);  
+        
         Consumer<Integer> consumer1=(x)-> System.out.println(x);  
+        numbers2.forEach(consumer1);
         
         Consumer<List> consumer=(x)-> System.out.println(x);  
         consumer.accept(numbers2);  
-        
-        numbers2.forEach(consumer1);
     } 
 }
