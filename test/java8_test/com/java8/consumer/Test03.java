@@ -24,6 +24,7 @@ public class Test03 {
         for (Student e : employees) {  
             fx.accept(e);  
         }  
+        employees.forEach(fx);
     }  
 }
 

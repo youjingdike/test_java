@@ -14,6 +14,7 @@ public class Test02 {
   
         SunPower p1 = produce(() -> power);//只会初始化一次 因此只会输出一个结果  
         SunPower p2 = produce(() -> power);  
+        SunPower p3 = produce(SunPower::new);  
   
         System.out.println("Check the same object? " + Objects.equals(p1, p2));  
     }

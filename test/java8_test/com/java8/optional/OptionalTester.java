@@ -5,8 +5,8 @@ import java.util.Optional;
  * Optional：
  * 1.map()可级联调用
  * 2.尽量使用orElse(),orElseGet(),不要使用get(),如果要使用get(),必须先调用isPresent();
- * 3.Optional不要用作属性或是方法参数
- * 
+ * 3.Optional 不要用作属性或是方法参数
+ * 4.Optional 主要用作返回类型
  * @author xq
  * @date 2018年6月30日
  */
