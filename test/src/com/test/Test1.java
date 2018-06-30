@@ -19,6 +19,15 @@ public class Test1 {
 		i = 5;
 	}
 	public static void main(String[] args) {
+		long l = 10000L;
+		l++;
+		System.out.println(l);
+		l+=12;
+		System.out.println(l);
+		System.out.println(Long.MAX_VALUE);
+		System.out.println(Long.MIN_VALUE);
+		System.out.println(Integer.MAX_VALUE);
+		System.out.println(Integer.MIN_VALUE);
 		Integer ig = new Integer(9);
 		/*String s = "11111111";
 		char[] c = {'H','o'};
@@ -62,7 +71,7 @@ System.out.println("~~~~~~~~~~~");
 		}
 		
 		testList();*/
-		FileOutputStream fos = null;
+		/*FileOutputStream fos = null;
         String string = "saf dasf adf adf afd";
         boolean flag = true;
         int i = 0;
@@ -85,7 +94,7 @@ System.out.println("~~~~~~~~~~~");
 	                e.printStackTrace();
 	            }
 	        }
-        }
+        }*/
 	}
 	
 	public static void getN(int[] in,int num,int total) {
