@@ -114,7 +114,7 @@ public class NumberToCN {
     }
 
     public static void main(String[] args) {
-        double money = -2020004.1;
+        double money = -2020004.67;
         BigDecimal numberOfMoney = new BigDecimal(money);
         String s = NumberToCN.number2CNMontrayUnit(numberOfMoney);
         System.out.println("你输入的金额为：【"+ money +"】   #--# [" +s.toString()+"]");
