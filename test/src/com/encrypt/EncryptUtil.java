@@ -1,7 +1,6 @@
 package com.encrypt;
 
 import java.io.UnsupportedEncodingException;
-import java.math.BigInteger;
 import java.security.InvalidKeyException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -16,6 +15,7 @@ import org.apache.commons.codec.binary.Base64;
 public class EncryptUtil {  
 	
 	public static final String KEY_SHA = "SHA";  
+	public static final String KEY_SHA_1 = "SHA-1";  
 	public static final String KEY_MD5 = "MD5";  
 	public static final String KEY_MAC = "HmacMD5";  
   
@@ -42,7 +42,7 @@ public class EncryptUtil {
 		return Base64.encodeBase64(origin);  
 	}  
 	
-	 /**利用MD5进行加密
+	 /**利用MD5+base64进行加密
      * @param str  待加密的字符串
      * @return  加密后的字符串
      * @throws NoSuchAlgorithmException  没有这种产生消息摘要的算法
@@ -84,6 +84,20 @@ public class EncryptUtil {
 		md5.update(data);  
 		return md5.digest();  
 	}  
+	
+	/** 
+	 * MD5加密 
+	 *  
+	 * @throws NoSuchAlgorithmException 
+	 */  
+	public static String encryptByMD5(String data)  throws NoSuchAlgorithmException {  
+		if (data == null) {  
+			return null;  
+		}  
+		MessageDigest md5 = MessageDigest.getInstance(KEY_MD5);  
+		md5.update(data.getBytes());  
+		return convertByteToHexString(md5.digest());  
+	}  
 	  
 	/** 
 	* SHA加密 
@@ -97,6 +111,34 @@ public class EncryptUtil {
 		MessageDigest sha = MessageDigest.getInstance(KEY_SHA);  
 		sha.update(data);  
 		return sha.digest();  
+	}  
+	
+	/** 
+	 * SHA1加密 
+	 *  
+	 * @throws NoSuchAlgorithmException 
+	 */  
+	public static byte[] encryptSHA1(byte[] data)  throws NoSuchAlgorithmException {  
+		if (data == null) {  
+			return null;  
+		}  
+		MessageDigest sha = MessageDigest.getInstance(KEY_SHA_1);  
+		sha.update(data);  
+		return sha.digest();  
+	}  
+	
+	/** 
+	 * SHA1加密 
+	 *  
+	 * @throws NoSuchAlgorithmException 
+	 */  
+	public static String encryptSHA1(String data)  throws NoSuchAlgorithmException {  
+		if (data == null) {
+			return null;  
+		}  
+		MessageDigest sha = MessageDigest.getInstance(KEY_SHA_1);  
+		sha.update(data.getBytes());  
+		return convertByteToHexString(sha.digest());
 	}  
 	  
 	/** 
@@ -153,24 +195,28 @@ public class EncryptUtil {
 	public static void main(String[] args) throws Exception {  
 		// TODO Auto-generated method stub  
 //		String data = "简单加密";  
-		String data = "0123456789";  
-		System.out.println(new BigInteger(encryptBASE64(data.getBytes())).toString(16));  
-		System.out.println(new BigInteger(encryptBASE64(data.getBytes())).toString(32));  
-		System.out.println(new String(decryptBASE64(encryptBASE64(data.getBytes()))));  
-		  
-		System.out.println("md5:"+new BigInteger(encryptMD5(data.getBytes())).toString());  
-		System.out.println("md5:"+new String(Base64.encodeBase64(encryptMD5(data.getBytes("utf-8"))),"utf-8"));  
-		System.out.println(new BigInteger(encryptSHA(data.getBytes())).toString());  
-		  
-		System.out.println(new BigInteger(encryptHMAC(data.getBytes(), initMacKey())).toString());  
-		System.out.println(new BigInteger(encryptHMAC(data.getBytes(), initMacKey())).toString());  
+		String data = "jsapi_ticket=sM4AOVdWfPE4DxkXGEs8VMCPGGVi4C3VM0P37wVUCFvkVAy_90u5h9nbSlYy3-Sl-"
+				+ "HhTdfl2fzFy1AOcHKP7qg&noncestr=Wm3WZYTPz0wzccnW&timestamp=1414587457&url=http://mp.weixin.qq.com?params=value";  
+//		System.out.println(new BigInteger(encryptBASE64(data.getBytes())).toString(16));  
+//		System.out.println(new BigInteger(encryptBASE64(data.getBytes())).toString(32));  
+//		System.out.println(new String(decryptBASE64(encryptBASE64(data.getBytes()))));  
+//		  
+//		System.out.println("md5:"+new BigInteger(encryptMD5(data.getBytes())).toString());  
+//		System.out.println("md5:"+new String(Base64.encodeBase64(encryptMD5(data.getBytes("utf-8"))),"utf-8"));  
+//		System.out.println(new BigInteger(encryptSHA(data.getBytes())).toString());  
+//		  
+//		System.out.println(new BigInteger(encryptHMAC(data.getBytes(), initMacKey())).toString());  
+//		System.out.println(new BigInteger(encryptHMAC(data.getBytes(), initMacKey())).toString());  
+//		
+//		System.out.println(encoderByMd5("123"));
+//		System.out.println(checkPassword("0123456789","Ed268zhq6h8pdO7phFQhUg=="));
+//		
+//		//202cb962ac59075b964b07152d234b70
+//		System.out.println(convert(encryptMD5("123".getBytes())));
+//		System.out.println(convertByteToHexString(encryptMD5("123".getBytes())));
+//		System.out.println(encryptByMD5("123"));
+		System.out.println(encryptSHA1(data));
 		
-		System.out.println(encoderByMd5("123"));
-		System.out.println(checkPassword("0123456789","Ed268zhq6h8pdO7phFQhUg=="));
-		
-		//202cb962ac59075b964b07152d234b70
-		System.out.println(convert(encryptMD5("123".getBytes())));
-		System.out.println(convertByteToHexString(encryptMD5("123".getBytes())));
 	}  
   
 }  
