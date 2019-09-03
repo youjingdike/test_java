@@ -2,13 +2,7 @@ package com.util;
 
 import java.io.BufferedInputStream;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Hashtable;
-import java.util.Vector;
-
-import com.sinosoft.sysframework.exceptionlog.UserException;
+import java.util.*;
 
 /**
  * 字符串工具类
@@ -41,13 +35,11 @@ public class StringUtils {
 				} else if (Double.isNaN(result)) {// 如果是NaN
 					result = PRE_SET_VALUE;
 				} else if (result > MAX_SET_VALUE) {// 数值过大，抛出异常
-					throw new UserException(-98, 9201, "StringUtils", "接口数据错误。数值过大。");
+//					throw new UserException(-98, 9201, "StringUtils", "接口数据错误。数值过大。");
 				}
 			}
 		} catch (NumberFormatException e) {// 如果不是数字
 			result = PRE_SET_VALUE;
-		} catch (UserException e1) {
-			throw e1;
 		}
 		return result;
 	}

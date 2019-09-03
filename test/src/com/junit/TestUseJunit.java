@@ -39,7 +39,6 @@ import java.util.Map.Entry;
 
 import org.junit.Test;
 
-import com.sinosoft.sysframework.common.datatype.DateTime;
 import com.util.StringUtils;
 import com.vo.Man;
 import com.vo.Woman;
@@ -391,12 +390,12 @@ public class TestUseJunit {
         System.out.println(daaa.getYear());
         
         
-        DateTime dt = new DateTime(new Date());
+        /*DateTime dt = new DateTime(new Date());
         DateTime dt1 = new DateTime();
         DateTime d = new DateTime("");
         System.out.println("d:"+d);
         System.out.println("dt:"+dt);
-        System.out.println("dt1:"+dt1);
+        System.out.println("dt1:"+dt1);*/
     }
     
     @Test
