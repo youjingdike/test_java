@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class UtilModule {
-	/** ÓÃÓÚÉú³É½»Ò×ÂëÁ÷Ë®ºÅµÄ¾²Ì¬³ÉÔ±±äÁ¿ */
+	/** ç”¨äºç”Ÿæˆäº¤æ˜“ç æµæ°´å·çš„é™æ€æˆå‘˜å˜é‡ */
     public static int i = 0;
 	public static Integer ii = 0;
 
@@ -12,7 +12,7 @@ public class UtilModule {
 	public static synchronized String createTaxDealCode() {
 		StringBuilder sb = new StringBuilder();
 
-		// 6.Ìí¼ÓÈıÎ»Ëæ»úµÄÁ÷Ë®ºÅ£¨3Î»£©
+		// 6.æ·»åŠ ä¸‰ä½éšæœºçš„æµæ°´å·ï¼ˆ3ä½ï¼‰
 		i++;
 		if (i < 10) {
 			sb.append("00" + i);
@@ -30,7 +30,7 @@ public class UtilModule {
 	public static String createTaxDealCode2() {
         StringBuilder sb = new StringBuilder();
 
-        // 6.Ìí¼ÓÈıÎ»Ëæ»úµÄÁ÷Ë®ºÅ£¨3Î»£©
+        // 6.æ·»åŠ ä¸‰ä½éšæœºçš„æµæ°´å·ï¼ˆ3ä½ï¼‰
         synchronized(UtilModule.class){
             i++;
             if (i < 10) {
@@ -48,45 +48,45 @@ public class UtilModule {
     }
 	
 	/**
-     * ½»Ò×ÂëÉú³ÉÄ£¿é
+     * äº¤æ˜“ç ç”Ÿæˆæ¨¡å—
      * 
      * @param flag
-     *            ËùÊô±êÊ¶´úÂë
+     *            æ‰€å±æ ‡è¯†ä»£ç 
      * @param companyCode
-     *            ¹«Ë¾´úÂë
+     *            å…¬å¸ä»£ç 
      * @param areaCode
-     *            ¹ú±êÇøÓò´úÂë
+     *            å›½æ ‡åŒºåŸŸä»£ç 
      * @param serviceCode
-     *            ·şÎñ±àÂë
-     * @return taxDealCode ½»Ò×Âë
+     *            æœåŠ¡ç¼–ç 
+     * @return taxDealCode äº¤æ˜“ç 
      */
     public static synchronized String createTaxDealCode(String flag,
             String companyCode, String areaCode, String serviceCode) {
-        // ËùÊô±êÊ¶´úÂë£¨1Î»£©+¹«Ë¾´úÂë£¨4Î»£©+¹ú±êÇøÓò´úÂë£¨6Î»£©+·şÎñ±àÂë£¨1Î»£©+ÈÕÆÚ£¨8Î»£©+Ê±¼ä£¨9Î»£©+Á÷Ë®ºÅ£¨3Î»£©
+        // æ‰€å±æ ‡è¯†ä»£ç ï¼ˆ1ä½ï¼‰+å…¬å¸ä»£ç ï¼ˆ4ä½ï¼‰+å›½æ ‡åŒºåŸŸä»£ç ï¼ˆ6ä½ï¼‰+æœåŠ¡ç¼–ç ï¼ˆ1ä½ï¼‰+æ—¥æœŸï¼ˆ8ä½ï¼‰+æ—¶é—´ï¼ˆ9ä½ï¼‰+æµæ°´å·ï¼ˆ3ä½ï¼‰
         StringBuilder sb = new StringBuilder();
 
-        // 1.Ìí¼ÓÆ½Ì¨µÄËùÊô±êÊ¶´úÂë(1Î»)
+        // 1.æ·»åŠ å¹³å°çš„æ‰€å±æ ‡è¯†ä»£ç (1ä½)
         sb.append(flag);
 
-        // 2.Ìí¼Ó¹«Ë¾´úÂë£¨4Î»£©
+        // 2.æ·»åŠ å…¬å¸ä»£ç ï¼ˆ4ä½ï¼‰
         companyCode = companyCode.toUpperCase();
         sb.append(companyCode);
 
-        // 3.Ôö¼Ó¹ú±êÇøÓò´úÂë£¨6Î»£©
+        // 3.å¢åŠ å›½æ ‡åŒºåŸŸä»£ç ï¼ˆ6ä½ï¼‰
         serviceCode = serviceCode.toUpperCase();
         sb.append(areaCode);
 
-        // 4.Ìí¼Ó·şÎñ±êÖ¾´úÂë£¨1Î»£©
+        // 4.æ·»åŠ æœåŠ¡æ ‡å¿—ä»£ç ï¼ˆ1ä½ï¼‰
         sb.append(serviceCode);
 
-        // 5.Ôö¼Ó8Î»ÈÕÆÚºÍ9Î»Ê±¼ä
+        // 5.å¢åŠ 8ä½æ—¥æœŸå’Œ9ä½æ—¶é—´
         Date date = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(
                 "yyyyMMddHHmmssSSS");
         String da = simpleDateFormat.format(date);
         sb.append(da.substring(0, da.length()-2));
 
-        // 6.Ìí¼ÓÈıÎ»Ëæ»úµÄÁ÷Ë®ºÅ£¨3Î»£©
+        // 6.æ·»åŠ ä¸‰ä½éšæœºçš„æµæ°´å·ï¼ˆ3ä½ï¼‰
         i++;
         if (i < 10) {
             sb.append("00" + i);
@@ -104,7 +104,7 @@ public class UtilModule {
     public static String createTaxDealCode1() {
         StringBuilder sb = new StringBuilder();
 
-        // 6.Ìí¼ÓÈıÎ»Ëæ»úµÄÁ÷Ë®ºÅ£¨3Î»£©
+        // 6.æ·»åŠ ä¸‰ä½éšæœºçš„æµæ°´å·ï¼ˆ3ä½ï¼‰
         synchronized(ii) {
             ii++;
             if (ii < 10) {
@@ -138,9 +138,9 @@ class T1 implements Runnable{
     public void run() {
 //        UtilModule module = new UtilModule();
         for (int i=0; i<500; i++) {
-            System.out.println(Thread.currentThread().getName() + "£º" + UtilModule.createTaxDealCode1() + ",i=" + i);
-//            System.out.println("T1£º" + UtilModule.createTaxDealCode1());
-//            System.out.println("T1£º" + module.createTaxDealCode1());
+            System.out.println(Thread.currentThread().getName() + "ï¼š" + UtilModule.createTaxDealCode1() + ",i=" + i);
+//            System.out.println("T1ï¼š" + UtilModule.createTaxDealCode1());
+//            System.out.println("T1ï¼š" + module.createTaxDealCode1());
         }
         
     }
@@ -151,8 +151,8 @@ class T2 implements Runnable{
     public void run() {
 //        UtilModule module = new UtilModule();
         for (int i=0; i<100; i++) {
-//            System.out.println("T2£º" + module.createTaxDealCode1());
-            System.out.println("T2£º" + UtilModule.createTaxDealCode1());
+//            System.out.println("T2ï¼š" + module.createTaxDealCode1());
+            System.out.println("T2ï¼š" + UtilModule.createTaxDealCode1());
         }
         
     }

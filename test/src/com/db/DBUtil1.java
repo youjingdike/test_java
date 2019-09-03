@@ -15,7 +15,7 @@ public class DBUtil1 {
 //          InputStream is=DBUtil.class.getClassLoader().getResourceAsStream("db.properties");
             InputStream is=Thread.currentThread().getContextClassLoader().getResourceAsStream("db1.properties");
             
-            //如果位于包下面的资源。则可以
+            //濡傛灉浣嶄簬鍖呬笅闈㈢殑璧勬簮銆傚垯鍙互
 //          InputStream is=Thread.currentThread().getContextClassLoader().getResourceAsStream("com/bjsxt/jdbc/db.properties");
             properties = new Properties();
             try {
@@ -35,7 +35,7 @@ public class DBUtil1 {
             
             try {
                 /*Class.forName(properties.getProperty("driver"));
-                String url=properties.getProperty("url"); //orcl为数据库的SID 
+                String url=properties.getProperty("url"); //orcl涓烘暟鎹簱鐨凷ID 
                 String user=properties.getProperty("user"); 
                 String password=properties.getProperty("password");  
                 conn = DriverManager.getConnection(url,user,password);*/

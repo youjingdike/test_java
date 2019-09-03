@@ -127,13 +127,13 @@ System.out.println("~~~~~~~~~~~");
 		  list2.add("4444");
 		  list2.add("5555");
 		  
-		  //²¢¼¯
+		  //å¹¶é›†
 //		  list1.addAll(list2);
-		  //½»¼¯
+		  //äº¤é›†
 //		  list1.retainAll(list2);
-		  //²î¼¯
+		  //å·®é›†
 		  list1.removeAll(list2);
-		  //ÎŞÖØ¸´²¢¼¯
+		  //æ— é‡å¤å¹¶é›†
 //		    list2.removeAll(list1);
 //		    list1.addAll(list2);
 		  

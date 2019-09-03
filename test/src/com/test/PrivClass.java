@@ -4,7 +4,7 @@ public class PrivClass {
 	private String name;
 	
 	/**
-	 * privateĞŞÊÎµÄ£¬¿ÉÒÔÔÚÏàÍ¬¶ÔÏóµÄ·½·¨ÀïÊ¹ÓÃ
+	 * privateä¿®é¥°çš„ï¼Œå¯ä»¥åœ¨ç›¸åŒå¯¹è±¡çš„æ–¹æ³•é‡Œä½¿ç”¨
 	 * @param ot
 	 */
 	public void comp(PrivClass ot) {

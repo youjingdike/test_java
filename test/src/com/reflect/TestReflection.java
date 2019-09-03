@@ -11,21 +11,21 @@ import com.vo.Person;
 public class TestReflection {
 	
 	/**
-	 * ²âÊÔ»ñÈ¡Class¶ÔÏó 
+	 * æµ‹è¯•è·å–Classå¯¹è±¡ 
 	 */
 	private static void testGetClassObject(){
-		//ObjectµÄgetClass·½·¨
-//		Person p = new Person("¸ß7");
-//		Class  c = p.getClass();        //p  PersionÀà  µÄClass¶ÔÏó
+		//Objectçš„getClassæ–¹æ³•
+//		Person p = new Person("é«˜7");
+//		Class  c = p.getClass();        //p  Persionç±»  çš„Classå¯¹è±¡
 ////		System.out.println(c.getName());
 ////		System.out.println(c.getPackage());
-////		//Ê¹ÓÃÀàÃû.classµÄ·½Ê½
+////		//ä½¿ç”¨ç±»å.classçš„æ–¹å¼
 //		Class c2 = Person.class;
 //		
 //		System.out.println(c==c2);
 //		System.out.println(c2.getName()); 
 //		
-//		//Ê¹ÓÃClass.forName()·½Ê½
+//		//ä½¿ç”¨Class.forName()æ–¹å¼
 		try {
 			Class c3 = Class.forName("com.vo.Person");
 			System.out.println(c3.getName());
@@ -38,25 +38,25 @@ public class TestReflection {
 
 
 	/**
-	 * ²âÊÔÊôĞÔ²Ù×÷
+	 * æµ‹è¯•å±æ€§æ“ä½œ
 	 */
 	private static void testField(){
 		try {
 			Class c = Class.forName("com.vo.Person");
-////			Field[] fs = c.getFields();     // Ö»ÄÜ»ñµÃpublicµÄÊôĞÔĞÅÏ¢
-////			Field[]  fs2=c.getDeclaredFields();  //»ñµÃËùÓĞÉùÃ÷µÄÊôĞÔĞÅÏ¢
+////			Field[] fs = c.getFields();     // åªèƒ½è·å¾—publicçš„å±æ€§ä¿¡æ¯
+////			Field[]  fs2=c.getDeclaredFields();  //è·å¾—æ‰€æœ‰å£°æ˜çš„å±æ€§ä¿¡æ¯
 ////			for (int i = 0; i < fs2.length; i++) {
 ////				Field field = fs2[i];
 ////				System.out.println(field.getName());
-////				System.out.println("ÊôĞÔÀàĞÍ£º"+field.getType().getName()); //ÊôĞÔÊÇ¹«ÓĞ²ÅĞĞ¡£ 
+////				System.out.println("å±æ€§ç±»å‹ï¼š"+field.getType().getName()); //å±æ€§æ˜¯å…¬æœ‰æ‰è¡Œã€‚ 
 ////			}
-//			//µÃµ½Ä³¸ö¶ÔÏóÖ¸¶¨ÊôĞÔµÄÖµ
-			Field f = c.getField("name");   //PersonÀàµÄ nameÊôĞÔµÄĞÅÏ¢
-			System.out.println(f.get(new Person("¸ß7")));  
+//			//å¾—åˆ°æŸä¸ªå¯¹è±¡æŒ‡å®šå±æ€§çš„å€¼
+			Field f = c.getField("name");   //Personç±»çš„ nameå±æ€§çš„ä¿¡æ¯
+			System.out.println(f.get(new Person("é«˜7")));  
 //
-//			//µÃµ½ÀàµÄ¾²Ì¬ÊôĞÔ
+//			//å¾—åˆ°ç±»çš„é™æ€å±æ€§
 //			Field f2= c.getField("age");
-//			System.out.println("ÀàµÄ¾²Ì¬ÊôĞÔÖµ£º"+f2.get(c));
+//			System.out.println("ç±»çš„é™æ€å±æ€§å€¼ï¼š"+f2.get(c));
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -67,7 +67,7 @@ public class TestReflection {
 
 
 	/**
-	 * ²âÊÔÖ´ĞĞ¶ÔÏó»òÀàµÄ·½·¨
+	 * æµ‹è¯•æ‰§è¡Œå¯¹è±¡æˆ–ç±»çš„æ–¹æ³•
 	 */
 	private static void testMethod(){
 		try {
@@ -77,15 +77,15 @@ public class TestReflection {
 				Method method = ms[i];
 				System.out.println(method.getName()); 
 			}
-//			//¶ÔÏó·½·¨µÄµ÷ÓÃ
-			Person p = new Person("¸ß7");
+//			//å¯¹è±¡æ–¹æ³•çš„è°ƒç”¨
+			Person p = new Person("é«˜7");
 			Method m = c.getMethod("test1",null);
 			m.invoke(p, null);
-//			//ÓĞ²ÎÊı´«ÈëµÄ·½·¨µÄµ÷ÓÃ!
+//			//æœ‰å‚æ•°ä¼ å…¥çš„æ–¹æ³•çš„è°ƒç”¨!
 			Method m2 = c.getMethod("test2",int.class,String.class);
 			m2.invoke(p,22,"aaa");
 //			
-//			//ÀàµÄ¾²Ì¬·½·¨µ÷ÓÃ
+//			//ç±»çš„é™æ€æ–¹æ³•è°ƒç”¨
 			Method m3 = c.getMethod("test3", int.class,String.class);
 			m3.invoke(null, 33,"ddd");
 			
@@ -98,7 +98,7 @@ public class TestReflection {
 
 
 	/**
-	 * ²âÊÔ¹¹ÔìĞÂµÄ¶ÔÏó
+	 * æµ‹è¯•æ„é€ æ–°çš„å¯¹è±¡
 	 */
 	private static void testConstructor(){
 		try {
@@ -120,7 +120,7 @@ public class TestReflection {
 
 
 	/**
-	 * ²âÊÔÄ³¸ö¶ÔÏóÊÇ·ñÎªÄ³¸öÀàµÄ¶ÔÏó
+	 * æµ‹è¯•æŸä¸ªå¯¹è±¡æ˜¯å¦ä¸ºæŸä¸ªç±»çš„å¯¹è±¡
 	 */
 	private static void testIsInstance(){
 		Person p = new Person();
@@ -131,13 +131,13 @@ public class TestReflection {
 	}
 	
 	/**
-	 * ²âÊÔÄ³¸ö¶ÔÏóÊÇ·ñÎªÄ³¸öÀàµÄ¶ÔÏó
+	 * æµ‹è¯•æŸä¸ªå¯¹è±¡æ˜¯å¦ä¸ºæŸä¸ªç±»çš„å¯¹è±¡
 	 * @throws SecurityException 
 	 * @throws Exception 
 	 */
 	private static void testCast(Object obj) throws Exception{
 		System.out.println(obj.getClass());
-		Field f = obj.getClass().getDeclaredField("name"); //xxxÊÇÏ£Íû»ñÈ¡µÄÊôĞÔ
+		Field f = obj.getClass().getDeclaredField("name"); //xxxæ˜¯å¸Œæœ›è·å–çš„å±æ€§
 		f.setAccessible(true);
 		Object value = f.get(obj);
 		System.out.println(value);

@@ -6,7 +6,7 @@ public class TestStatic1 {
 //        System.out.println(TestStatic.str);
 //        System.out.println(TestStatic.str1);
 //        System.out.println(TestStatic.str2);
-        System.out.println("~~~~²âÊÔ~~~~~~~~~~~~~~~");
+        System.out.println("~~~~æµ‹è¯•~~~~~~~~~~~~~~~");
 //        System.out.println(static1.str);
 //        System.out.println(static1.str1);
 //        System.out.println(static1.str2);

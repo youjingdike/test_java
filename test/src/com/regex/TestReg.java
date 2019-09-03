@@ -9,61 +9,61 @@ import org.junit.Test;
 
 /**
  * @author xingqian
- * @²âÊÔÕıÔò±í´ïÊ½
+ * @æµ‹è¯•æ­£åˆ™è¡¨è¾¾å¼
  */
 public class TestReg {
     /**
-     * ÑéÖ¤´«ÈëµÄ×Ö·û´®ÊÇ·ñÕû¸öÆ¥ÅäÕıÔò±í´ïÊ½
-     * @param regex ÕıÔò±í´ïÊ½
-     * @param decStr ÒªÆ¥ÅäµÄ×Ö·û´®
-     * @return ÈôÆ¥Åä£¬Ôò·µ»Øtrue;·ñÔò£¬·µ»Øfalse;
+     * éªŒè¯ä¼ å…¥çš„å­—ç¬¦ä¸²æ˜¯å¦æ•´ä¸ªåŒ¹é…æ­£åˆ™è¡¨è¾¾å¼
+     * @param regex æ­£åˆ™è¡¨è¾¾å¼
+     * @param decStr è¦åŒ¹é…çš„å­—ç¬¦ä¸²
+     * @return è‹¥åŒ¹é…ï¼Œåˆ™è¿”å›true;å¦åˆ™ï¼Œè¿”å›false;
      */
     public static boolean validataAll(String regex, String decStr) {
-        //±í´ïÊ½¶ÔÏó
+        //è¡¨è¾¾å¼å¯¹è±¡
         Pattern p = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
-        //´´½¨Matcher¶ÔÏó
+        //åˆ›å»ºMatcherå¯¹è±¡
         Matcher m = p.matcher(decStr);
-        //ÊÇ·ñÍêÈ«Æ¥Åä
-        boolean b = m.matches();//¸Ã·½·¨³¢ÊÔ½«Õû¸öÊäÈëĞòÁĞÓë¸ÃÄ£Ê½Æ¥Åä
+        //æ˜¯å¦å®Œå…¨åŒ¹é…
+        boolean b = m.matches();//è¯¥æ–¹æ³•å°è¯•å°†æ•´ä¸ªè¾“å…¥åºåˆ—ä¸è¯¥æ¨¡å¼åŒ¹é…
         return b;
     }
     
     /**
-     * ÑéÖ¤´«ÈëµÄ×Ö·û´®ÊÇ·ñÓĞ×Ó×Ö·û´®Æ¥ÅäÕıÔò±í´ïÊ½
-     * @param regex ÕıÔò±í´ïÊ½
-     * @param decStr ÒªÆ¥ÅäµÄ×Ö·û´®
-     * @return ÈôÆ¥Åä£¬Ôò·µ»Øtrue;·ñÔò£¬·µ»Øfalse;
+     * éªŒè¯ä¼ å…¥çš„å­—ç¬¦ä¸²æ˜¯å¦æœ‰å­å­—ç¬¦ä¸²åŒ¹é…æ­£åˆ™è¡¨è¾¾å¼
+     * @param regex æ­£åˆ™è¡¨è¾¾å¼
+     * @param decStr è¦åŒ¹é…çš„å­—ç¬¦ä¸²
+     * @return è‹¥åŒ¹é…ï¼Œåˆ™è¿”å›true;å¦åˆ™ï¼Œè¿”å›false;
      */
     public static boolean validataSub(String regex, String decStr) {
-        //±í´ïÊ½¶ÔÏó
+        //è¡¨è¾¾å¼å¯¹è±¡
         Pattern p = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
-        //´´½¨Matcher¶ÔÏó
+        //åˆ›å»ºMatcherå¯¹è±¡
         Matcher m = p.matcher(decStr);
-        //ÊÇ·ñÍêÈ«Æ¥Åä
-        boolean b = m.find();//¸Ã·½·¨É¨ÃèÊäÈëĞòÁĞÒÔ²éÕÒÓë¸ÃÄ£Ê½Æ¥ÅäµÄÏÂÒ»¸ö×ÓĞòÁĞ¡£
+        //æ˜¯å¦å®Œå…¨åŒ¹é…
+        boolean b = m.find();//è¯¥æ–¹æ³•æ‰«æè¾“å…¥åºåˆ—ä»¥æŸ¥æ‰¾ä¸è¯¥æ¨¡å¼åŒ¹é…çš„ä¸‹ä¸€ä¸ªå­åºåˆ—ã€‚
         return b;
     }
     
     /**
-     * ¸ø¶¨×Ö·û´®ÖĞÊÇ·ñÓĞ·ûºÏ¸ø¶¨ÕıÔò±í´ïÊ½µÄ×Ó×Ö·û´®£¬·µ»ØÆ¥ÅäµÄµÚÒ»¸ö×Ó×Ö·û´®
-     * @param regex£ºÕıÔò±í´ïÊ½
-     * @param decStr£ºÒªÆ¥ÅäµÄ×Ö·û´®
-     * @return :·µ»ØÆ¥ÅäµÄµÚÒ»¸ö×Ö·û´®£¬Èô²»Æ¥ÅäÔònull
+     * ç»™å®šå­—ç¬¦ä¸²ä¸­æ˜¯å¦æœ‰ç¬¦åˆç»™å®šæ­£åˆ™è¡¨è¾¾å¼çš„å­å­—ç¬¦ä¸²ï¼Œè¿”å›åŒ¹é…çš„ç¬¬ä¸€ä¸ªå­å­—ç¬¦ä¸²
+     * @param regexï¼šæ­£åˆ™è¡¨è¾¾å¼
+     * @param decStrï¼šè¦åŒ¹é…çš„å­—ç¬¦ä¸²
+     * @return :è¿”å›åŒ¹é…çš„ç¬¬ä¸€ä¸ªå­—ç¬¦ä¸²ï¼Œè‹¥ä¸åŒ¹é…åˆ™null
      */
     public static String search(String regex, String decStr) {
         Pattern p = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
         Matcher m = p.matcher(decStr);
-        System.out.println("Æ¥Åäµ½µÄÊıÁ¿£º"+m.groupCount());
-      //ÊÇ·ñÍêÈ«Æ¥Åä
-        //boolean found = m.find();//¸Ã·½·¨É¨ÃèÊäÈëĞòÁĞÒÔ²éÕÒÓë¸ÃÄ£Ê½Æ¥ÅäµÄÏÂÒ»¸ö×ÓĞòÁĞ¡£
+        System.out.println("åŒ¹é…åˆ°çš„æ•°é‡ï¼š"+m.groupCount());
+      //æ˜¯å¦å®Œå…¨åŒ¹é…
+        //boolean found = m.find();//è¯¥æ–¹æ³•æ‰«æè¾“å…¥åºåˆ—ä»¥æŸ¥æ‰¾ä¸è¯¥æ¨¡å¼åŒ¹é…çš„ä¸‹ä¸€ä¸ªå­åºåˆ—ã€‚
         String foundStr = "";
         try {
             
             /*if (found) {
                 foundStr = m.group();
-                String foundstring0 = m.group(0);  //group(),group(0)·µ»Ø·ûºÏÕû¸ö±í´ïÊ½µÄ×Ó×Ö·û´®
-                String foundstring1 = m.group(1);  //group(1)·µ»Ø·ûºÏÕû¸ö±í´ïÊ½µÄ×Ó×Ö·û´®ÖĞÆ¥ÅäµÚÒ»¸ö±í´ïÊ½µÄ×Ó×Ö·û´®
-                String foundstring2 = m.group(2);   //group(2)·µ»Ø·ûºÏÕû¸ö±í´ïÊ½µÄ×Ó×Ö·û´®ÖĞÆ¥ÅäµÚ¶ş¸ö±í´ïÊ½µÄ×Ó×Ö·û´®
+                String foundstring0 = m.group(0);  //group(),group(0)è¿”å›ç¬¦åˆæ•´ä¸ªè¡¨è¾¾å¼çš„å­å­—ç¬¦ä¸²
+                String foundstring1 = m.group(1);  //group(1)è¿”å›ç¬¦åˆæ•´ä¸ªè¡¨è¾¾å¼çš„å­å­—ç¬¦ä¸²ä¸­åŒ¹é…ç¬¬ä¸€ä¸ªè¡¨è¾¾å¼çš„å­å­—ç¬¦ä¸²
+                String foundstring2 = m.group(2);   //group(2)è¿”å›ç¬¦åˆæ•´ä¸ªè¡¨è¾¾å¼çš„å­å­—ç¬¦ä¸²ä¸­åŒ¹é…ç¬¬äºŒä¸ªè¡¨è¾¾å¼çš„å­å­—ç¬¦ä¸²
                 String foundstring3 = m.group(3);
                 System.out.println("foundstring:"+foundStr);
                 System.out.println("foundstring0:"+foundstring0);
@@ -74,8 +74,8 @@ public class TestReg {
             while (m.find()) {
             	int groupCount = m.groupCount();
             	System.out.println("groupCount:"+groupCount);
-                String foundstring0 = m.group(0);  //group(),group(0)·µ»Ø·ûºÏÕû¸ö±í´ïÊ½µÄ×Ó×Ö·û´®
-                String foundstring1 = m.group(1);  //group(1)·µ»Ø·ûºÏÕû¸ö±í´ïÊ½µÄ×Ó×Ö·û´®ÖĞÆ¥ÅäµÚÒ»¸ö±í´ïÊ½µÄ×Ó×Ö·û´®
+                String foundstring0 = m.group(0);  //group(),group(0)è¿”å›ç¬¦åˆæ•´ä¸ªè¡¨è¾¾å¼çš„å­å­—ç¬¦ä¸²
+                String foundstring1 = m.group(1);  //group(1)è¿”å›ç¬¦åˆæ•´ä¸ªè¡¨è¾¾å¼çš„å­å­—ç¬¦ä¸²ä¸­åŒ¹é…ç¬¬ä¸€ä¸ªè¡¨è¾¾å¼çš„å­å­—ç¬¦ä¸²
                 System.out.println("foundstring:"+foundStr);
                 System.out.println("foundstring0:"+foundstring0);
                 System.out.println("foundstring1:"+foundstring1);
@@ -87,10 +87,10 @@ public class TestReg {
     }
     
     /**
-     * ·µ»Ø¸ø¶¨×Ö·û´®ÖĞÆ¥Åä¸ø¶¨ÕıÔò±í´ïÊ½ËùÓĞ×Ó×Ö·û´®
+     * è¿”å›ç»™å®šå­—ç¬¦ä¸²ä¸­åŒ¹é…ç»™å®šæ­£åˆ™è¡¨è¾¾å¼æ‰€æœ‰å­å­—ç¬¦ä¸²
      * @param regex
      * @param decStr
-     * @return List£º·µ»ØËùÓĞÆ¥ÅäÕıÔò±í´ïÊ½µÄ×Ó×Ö·û´®
+     * @return Listï¼šè¿”å›æ‰€æœ‰åŒ¹é…æ­£åˆ™è¡¨è¾¾å¼çš„å­å­—ç¬¦ä¸²
      */
     public static List<String> searchSubStr(String regex,String decStr) {
         Pattern p = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
@@ -106,23 +106,23 @@ System.out.println(string);
     }
 
     /**
-     * Ìæ»»¸ø¶¨×Ö·û´®ÖĞÆ¥ÅäÕıÔò±í´ïÊ½µÄ×Ó×Ö·û´®
-     * @param regex£ºÕıÔò±í´ïÊ½
-     * @param decStr£ºËùÒªÆ¥ÅäµÄ×Ö·û´®
-     * @param replaceStr£º½«·ûºÏÕıÔò±í´ïÊ½µÄ×Ó´®Ìæ»»Îª¸Ã×Ö·û´®
-     * @return£º·µ»ØÌæ»»ÒÔºóĞÂµÄ×Ö·û´®
+     * æ›¿æ¢ç»™å®šå­—ç¬¦ä¸²ä¸­åŒ¹é…æ­£åˆ™è¡¨è¾¾å¼çš„å­å­—ç¬¦ä¸²
+     * @param regexï¼šæ­£åˆ™è¡¨è¾¾å¼
+     * @param decStrï¼šæ‰€è¦åŒ¹é…çš„å­—ç¬¦ä¸²
+     * @param replaceStrï¼šå°†ç¬¦åˆæ­£åˆ™è¡¨è¾¾å¼çš„å­ä¸²æ›¿æ¢ä¸ºè¯¥å­—ç¬¦ä¸²
+     * @returnï¼šè¿”å›æ›¿æ¢ä»¥åæ–°çš„å­—ç¬¦ä¸²
      */
     public static String replace(String regex,String decStr,String replaceStr) {
         Pattern p = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
         Matcher m = p.matcher(decStr);
-        // Ìæ»»
+        // æ›¿æ¢
         String newstring = m.replaceAll(replaceStr);
 System.out.println(newstring);
         return newstring;
     }
 
     public static void testSplit(String str,String regex) {
-        // ·Ö¸î
+        // åˆ†å‰²
         String [] strs = str.split(regex);
         for(int i=0;i<strs.length;i++) {
             System.out.println(i+":::::::"+strs[i]);
@@ -131,7 +131,7 @@ System.out.println(newstring);
     
     @Test
     public void testValidataAll() {
-        System.out.println(validataAll("\\w+¾©", "334455aaa¾©"));
+        System.out.println(validataAll("\\w+äº¬", "334455aaaäº¬"));
         System.out.println(validataAll("\\d+", "334455aaa"));
     }
     
@@ -145,8 +145,8 @@ System.out.println(newstring);
     public void testSearch() {
 //        search("(\\d+)([a-z]+)(\\d+)", "334455aaa33--3232423bbb22-3232ccc411-3232ddd411"); 
     	String message = "";
-    	message = "=====================>> ¡¾1¡¿¡¾2¡¿ ·µ»Ø¸øÎ¢ĞÅĞÅÏ¢: <xml><return_code><![CDATA[SUCCESS]]></return_code><return_msg><![CDATA[OK]]></return_msg></xml>";
-        search("(¡¾)(.{1})(¡¿)", message); 
+    	message = "=====================>> ã€1ã€‘ã€2ã€‘ è¿”å›ç»™å¾®ä¿¡ä¿¡æ¯: <xml><return_code><![CDATA[SUCCESS]]></return_code><return_msg><![CDATA[OK]]></return_msg></xml>";
+        search("(ã€)(.{1})(ã€‘)", message); 
     }
     
     @Test
@@ -162,7 +162,7 @@ System.out.println(newstring);
     @Test
     public void testSp() {
 //        testSplit("abc5Adefghi7Ajklmn","(\\d)A");
-    	String log = "2017-12-21 15:57:06.754 [catalina-exec-5] - [INFO]     com.tzx.cc.service.rest.OrderRest(:81)     [ORDER -\u003e update]×Ü²¿ÊÕµ½ÇëÇóÊı¾İ:{\"code\":0,\"data\":[{\"bill_num\":\"\",\"chanel\":\"WM10\",\"dispatch_time\":null,\"distribution_time\":null,\"finish_time\":null,\"order_code\":\"\",\"order_repayment\":[],\"order_state\":\"\",\"order_type\":\"OUTSIDE_ORDER\",\"receive_time\":\"\",\"receive_time_cancellation\":\"\",\"receive_time_dispatch\":null,\"receive_time_distribution\":null,\"receive_time_finish\":null,\"receive_time_qd\":\"2016-12-28 15:50:57\",\"take_time\":\"2016-12-28 15:50:57\",\"third_order_code\":\" \"}],\"msg\":\"\",\"oper\":\"update\",\"pagination\":{\"asc\":false,\"orderby\":\"\",\"pageno\":0,\"pagesize\":0,\"totalcount\":0},\"secret\":\"\",\"source\":\"SERVER\",\"store_id\":4,\"success\":true,\"t\":1513843172196,\"tenancy_id\":\"yunnby\",\"type\":\"ORDER\"}";
+    	String log = "2017-12-21 15:57:06.754 [catalina-exec-5] - [INFO]     com.tzx.cc.service.rest.OrderRest(:81)     [ORDER -\u003e update]æ€»éƒ¨æ”¶åˆ°è¯·æ±‚æ•°æ®:{\"code\":0,\"data\":[{\"bill_num\":\"\",\"chanel\":\"WM10\",\"dispatch_time\":null,\"distribution_time\":null,\"finish_time\":null,\"order_code\":\"\",\"order_repayment\":[],\"order_state\":\"\",\"order_type\":\"OUTSIDE_ORDER\",\"receive_time\":\"\",\"receive_time_cancellation\":\"\",\"receive_time_dispatch\":null,\"receive_time_distribution\":null,\"receive_time_finish\":null,\"receive_time_qd\":\"2016-12-28 15:50:57\",\"take_time\":\"2016-12-28 15:50:57\",\"third_order_code\":\" \"}],\"msg\":\"\",\"oper\":\"update\",\"pagination\":{\"asc\":false,\"orderby\":\"\",\"pageno\":0,\"pagesize\":0,\"totalcount\":0},\"secret\":\"\",\"source\":\"SERVER\",\"store_id\":4,\"success\":true,\"t\":1513843172196,\"tenancy_id\":\"yunnby\",\"type\":\"ORDER\"}";
         testSplit(log,"\\s+");
     }
 }

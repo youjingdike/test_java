@@ -4,58 +4,58 @@ import java.math.BigDecimal;
 
 public class NumberToCN {
     /**
-     * ººÓïÖĞÊı×Ö´óĞ´
+     * æ±‰è¯­ä¸­æ•°å­—å¤§å†™
      */
-    private static final String[] CN_UPPER_NUMBER = { "Áã", "Ò¼", "·¡", "Èş", "ËÁ",
-            "Îé", "Â½", "Æâ", "°Æ", "¾Á" };
+    private static final String[] CN_UPPER_NUMBER = { "é›¶", "å£¹", "è´°", "å", "è‚†",
+            "ä¼", "é™†", "æŸ’", "æŒ", "ç–" };
     /**
-     * ººÓïÖĞ»õ±Òµ¥Î»´óĞ´£¬ÕâÑùµÄÉè¼ÆÀàËÆÓÚÕ¼Î»·û
+     * æ±‰è¯­ä¸­è´§å¸å•ä½å¤§å†™ï¼Œè¿™æ ·çš„è®¾è®¡ç±»ä¼¼äºå ä½ç¬¦
      */
-    private static final String[] CN_UPPER_MONETRAY_UNIT = { "·Ö", "½Ç", "Ôª",
-            "Ê°", "°Û", "Çª", "Íò", "Ê°", "°Û", "Çª", "ÒÚ", "Ê°", "°Û", "Çª", "Õ×", "Ê°",
-            "°Û", "Çª" };
+    private static final String[] CN_UPPER_MONETRAY_UNIT = { "åˆ†", "è§’", "å…ƒ",
+            "æ‹¾", "ä½°", "ä»Ÿ", "ä¸‡", "æ‹¾", "ä½°", "ä»Ÿ", "äº¿", "æ‹¾", "ä½°", "ä»Ÿ", "å…†", "æ‹¾",
+            "ä½°", "ä»Ÿ" };
     /**
-     * ÌØÊâ×Ö·û£ºÕû
+     * ç‰¹æ®Šå­—ç¬¦ï¼šæ•´
      */
-    private static final String CN_FULL = "Õû";
+    private static final String CN_FULL = "æ•´";
     /**
-     * ÌØÊâ×Ö·û£º¸º
+     * ç‰¹æ®Šå­—ç¬¦ï¼šè´Ÿ
      */
-    private static final String CN_NEGATIVE = "¸º";
+    private static final String CN_NEGATIVE = "è´Ÿ";
     /**
-     * ½ğ¶îµÄ¾«¶È£¬Ä¬ÈÏÖµÎª2
+     * é‡‘é¢çš„ç²¾åº¦ï¼Œé»˜è®¤å€¼ä¸º2
      */
     private static final int MONEY_PRECISION = 2;
     /**
-     * ÌØÊâ×Ö·û£ºÁãÔªÕû
+     * ç‰¹æ®Šå­—ç¬¦ï¼šé›¶å…ƒæ•´
      */
-    private static final String CN_ZEOR_FULL = "ÁãÔª" + CN_FULL;
+    private static final String CN_ZEOR_FULL = "é›¶å…ƒ" + CN_FULL;
 
     /**
-     * °ÑÊäÈëµÄ½ğ¶î×ª»»ÎªººÓïÖĞÈËÃñ±ÒµÄ´óĞ´
+     * æŠŠè¾“å…¥çš„é‡‘é¢è½¬æ¢ä¸ºæ±‰è¯­ä¸­äººæ°‘å¸çš„å¤§å†™
      * 
      * @param numberOfMoney
-     *            ÊäÈëµÄ½ğ¶î
-     * @return ¶ÔÓ¦µÄººÓï´óĞ´
+     *            è¾“å…¥çš„é‡‘é¢
+     * @return å¯¹åº”çš„æ±‰è¯­å¤§å†™
      */
     public static String number2CNMontrayUnit(BigDecimal numberOfMoney) {
         StringBuffer sb = new StringBuffer();
         // -1, 0, or 1 as the value of this BigDecimal is negative, zero, or
         // positive.
         int signum = numberOfMoney.signum();
-        // ÁãÔªÕûµÄÇé¿ö
+        // é›¶å…ƒæ•´çš„æƒ…å†µ
         if (signum == 0) {
             return CN_ZEOR_FULL;
         }
-        //ÕâÀï»á½øĞĞ½ğ¶îµÄËÄÉáÎåÈë
+        //è¿™é‡Œä¼šè¿›è¡Œé‡‘é¢çš„å››èˆäº”å…¥
         long number = numberOfMoney.movePointRight(MONEY_PRECISION)
                 .setScale(0, 4).abs().longValue();
-        // µÃµ½Ğ¡ÊıµãºóÁ½Î»Öµ
+        // å¾—åˆ°å°æ•°ç‚¹åä¸¤ä½å€¼
         long scale = number % 100;
         int numUnit = 0;
         int numIndex = 0;
         boolean getZero = false;
-        // ÅĞ¶Ï×îºóÁ½Î»Êı£¬Ò»¹²ÓĞËÄÖĞÇé¿ö£º00 = 0, 01 = 1, 10, 11
+        // åˆ¤æ–­æœ€åä¸¤ä½æ•°ï¼Œä¸€å…±æœ‰å››ä¸­æƒ…å†µï¼š00 = 0, 01 = 1, 10, 11
         if (!(scale > 0)) {
             numIndex = 2;
             number = number / 100;
@@ -71,7 +71,7 @@ public class NumberToCN {
             if (number <= 0) {
                 break;
             }
-            // Ã¿´Î»ñÈ¡µ½×îºóÒ»¸öÊı
+            // æ¯æ¬¡è·å–åˆ°æœ€åä¸€ä¸ªæ•°
             numUnit = (int) (number % 10);
             if (numUnit > 0) {
                 if ((numIndex == 9) && (zeroSize >= 3)) {
@@ -98,15 +98,15 @@ public class NumberToCN {
                 }
                 getZero = true;
             }
-            // ÈÃnumberÃ¿´Î¶¼È¥µô×îºóÒ»¸öÊı
+            // è®©numberæ¯æ¬¡éƒ½å»æ‰æœ€åä¸€ä¸ªæ•°
             number = number / 10;
             ++numIndex;
         }
-        // Èç¹ûsignum == -1£¬ÔòËµÃ÷ÊäÈëµÄÊı×ÖÎª¸ºÊı£¬¾ÍÔÚ×îÇ°Ãæ×·¼ÓÌØÊâ×Ö·û£º¸º
+        // å¦‚æœsignum == -1ï¼Œåˆ™è¯´æ˜è¾“å…¥çš„æ•°å­—ä¸ºè´Ÿæ•°ï¼Œå°±åœ¨æœ€å‰é¢è¿½åŠ ç‰¹æ®Šå­—ç¬¦ï¼šè´Ÿ
         if (signum == -1) {
             sb.insert(0, CN_NEGATIVE);
         }
-        // ÊäÈëµÄÊı×ÖĞ¡ÊıµãºóÁ½Î»Îª"00"µÄÇé¿ö£¬ÔòÒªÔÚ×îºó×·¼ÓÌØÊâ×Ö·û£ºÕû
+        // è¾“å…¥çš„æ•°å­—å°æ•°ç‚¹åä¸¤ä½ä¸º"00"çš„æƒ…å†µï¼Œåˆ™è¦åœ¨æœ€åè¿½åŠ ç‰¹æ®Šå­—ç¬¦ï¼šæ•´
         if (!(scale > 0)) {
             sb.append(CN_FULL);
         }
@@ -117,6 +117,6 @@ public class NumberToCN {
         double money = -2020004.67;
         BigDecimal numberOfMoney = new BigDecimal(money);
         String s = NumberToCN.number2CNMontrayUnit(numberOfMoney);
-        System.out.println("ÄãÊäÈëµÄ½ğ¶îÎª£º¡¾"+ money +"¡¿   #--# [" +s.toString()+"]");
+        System.out.println("ä½ è¾“å…¥çš„é‡‘é¢ä¸ºï¼šã€"+ money +"ã€‘   #--# [" +s.toString()+"]");
     }
 }

@@ -16,10 +16,10 @@ public class Test1 {
 	}
 	
 	public static void main(String[] args) {
-		Demo<ArrayList> p = null;//±àÒëÕıÈ·
-//		Demo<Collection> c = null;//±¨´í,ÏŞÖÆÁËÉÏÏŞ
-//		Demo1<GregorianCalendar> p1 = null;//±àÒë±¨´í,ÒòÎªGregorianCalendarÃ»ÓĞÊµÏÖComparable<GregorianCalendar>,Ö»ÊÇ¼Ì³ĞÁËComparable<Calendar>
-		Demo2<GregorianCalendar> p2 = null;//±àÒëÕıÈ·,ÒòÎªGregorianCalendar¼Ì³ĞÁËComparable<Calendar>£¬CalendarÊÇGregorianCalendarµÄ¸¸Àà
+		Demo<ArrayList> p = null;//ç¼–è¯‘æ­£ç¡®
+//		Demo<Collection> c = null;//æŠ¥é”™,é™åˆ¶äº†ä¸Šé™
+//		Demo1<GregorianCalendar> p1 = null;//ç¼–è¯‘æŠ¥é”™,å› ä¸ºGregorianCalendaræ²¡æœ‰å®ç°Comparable<GregorianCalendar>,åªæ˜¯ç»§æ‰¿äº†Comparable<Calendar>
+		Demo2<GregorianCalendar> p2 = null;//ç¼–è¯‘æ­£ç¡®,å› ä¸ºGregorianCalendarç»§æ‰¿äº†Comparable<Calendar>ï¼ŒCalendaræ˜¯GregorianCalendarçš„çˆ¶ç±»
 		
 		List<Animal> animals = new ArrayList<Animal>();
 		animals.add(new Animal(12));
@@ -35,7 +35,7 @@ public class Test1 {
 		
 		mySort1(animals);
 		ArrayUtils.read(animals);
-//		mySort1(dogs);//±¨´í,ÏŞÖÆÁËÉÏÏŞ
+//		mySort1(dogs);//æŠ¥é”™,é™åˆ¶äº†ä¸Šé™
 		
 		mySort2(animals);
 		ArrayUtils.read(animals);

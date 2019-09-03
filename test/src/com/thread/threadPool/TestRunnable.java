@@ -18,6 +18,6 @@ public class TestRunnable implements Runnable {
 			e.printStackTrace();
 		}
 		long e = System.currentTimeMillis();
-		System.out.println(Thread.currentThread().getName()+":"+this.i+",´¦ÀíµÄ¡£¡£¡£,´¦ÀíÊ±¼ä£º"+(e-s)+"ms");
+		System.out.println(Thread.currentThread().getName()+":"+this.i+",å¤„ç†çš„ã€‚ã€‚ã€‚,å¤„ç†æ—¶é—´ï¼š"+(e-s)+"ms");
 	}
 }

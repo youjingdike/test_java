@@ -2,7 +2,7 @@ package com.testExtend;
 
 public class Test extends Tt{
     String s = "wo shi son";
-    String ss = s;//³õÊ¼»¯µÄÊ±ºòsµÄ³õÊ¼»¯ÖµÊÇÊ²Ã´£¬ss¾ÍÊÇÊ²Ã´
+    String ss = s;//åˆå§‹åŒ–çš„æ—¶å€™sçš„åˆå§‹åŒ–å€¼æ˜¯ä»€ä¹ˆï¼Œsså°±æ˜¯ä»€ä¹ˆ
     
     public Test() {
     }
@@ -41,8 +41,8 @@ public class Test extends Tt{
     public static void main(String[] args) {
         //System.out.println(isTrue());
 //        Test t = new Test();
-//        Test t = new Test("ÄãºÃ");
-        Test t = new Test("ÄãºÃ","wo shi mi");
+//        Test t = new Test("ä½ å¥½");
+        Test t = new Test("ä½ å¥½","wo shi mi");
 //        t.setS("sdfsad");
         System.out.println(t.getS());
         t.saySS();

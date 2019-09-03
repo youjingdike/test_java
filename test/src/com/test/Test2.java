@@ -49,7 +49,7 @@ public class Test2 {
 //		testJson();
 		int i = 5;
 		int addtime = 0;
-		/**£¨Í¨ÖªÆµÂÊÎª15/15/30/180/300/300/480/600/600£¬µ¥Î»£ºÃë£© ¹²¼Æ42·ÖÖÓ*/
+		/**ï¼ˆé€šçŸ¥é¢‘ç‡ä¸º15/15/30/180/300/300/480/600/600ï¼Œå•ä½ï¼šç§’ï¼‰ å…±è®¡42åˆ†é’Ÿ*/
 		switch (i){
 			
 			case 1:
@@ -83,17 +83,17 @@ public class Test2 {
         {}.getType();
 //        ArrayList<JsonObject> jsonObjects = new Gson().fromJson(json, type);
         
-      //ÄÃµ½±¾µØJSON ²¢×ª³ÉString
+      //æ‹¿åˆ°æœ¬åœ°JSON å¹¶è½¬æˆString
 //        String strByJson = JsonToStringUtil.getStringByJson(this, R.raw.juser_1);
 String strByJson = "["
 		+ "{\"id\": 2,"
-        +"\"usergroup_name\": \"¸´ÔÓÄ£Ê½²âÊÔ\","
+        +"\"usergroup_name\": \"å¤æ‚æ¨¡å¼æµ‹è¯•\","
         +"\"filters\": {\"sql\":\"select distinct guid,idfa,extra['deviceId'] from tracking where year='2017' and month='11' and day='1'  and line='c2c' and tracking_type='pageload' and platform='ios'\"},"
         +"\"line\": \"2\","
         		+"\"is_valid\": 1,"
         		+"\"type\": 2,"
         		+"\"run_status\": 2,"
-        		+"\"remark\": \"11ÔÂ1ÈÕ ios»îÔ¾ÓÃ»§\","
+        		+"\"remark\": \"11æœˆ1æ—¥ iosæ´»è·ƒç”¨æˆ·\","
         		+"\"act_uid\": \"0\","
         		+"\"act_name\": \"\","
         		+"\"usernum\": 0,"
@@ -102,7 +102,7 @@ String strByJson = "["
         		+"\"createdAt\": \"2017-11-08 13:45:13\"},"
     +"{"
     +"\"id\": 4,"
-        		+"\"usergroup_name\": \"²âÊÔ\","
+        		+"\"usergroup_name\": \"æµ‹è¯•\","
         		+"\"filters\": {\"sql\":\"select * from usertable\"},"
         		+"\"line\": \"2\","
         		+"\"is_valid\": 1,"
@@ -117,15 +117,15 @@ String strByJson = "["
         		+"\"createdAt\": \"2017-11-08 20:14:27\""
         +"}"
 +"]";
-        //JsonµÄ½âÎöÀà¶ÔÏó
+        //Jsonçš„è§£æç±»å¯¹è±¡
         JsonParser parser = new JsonParser();
-        //½«JSONµÄString ×ª³ÉÒ»¸öJsonArray¶ÔÏó
+        //å°†JSONçš„String è½¬æˆä¸€ä¸ªJsonArrayå¯¹è±¡
         JsonArray jsonArray = parser.parse(strByJson).getAsJsonArray();
 System.out.println(jsonArray.size());
 System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~");
-        //¼ÓÇ¿forÑ­»·±éÀúJsonArray
+        //åŠ å¼ºforå¾ªç¯éå†JsonArray
         for (JsonElement user : jsonArray) {
-            //Ê¹ÓÃGSON£¬Ö±½Ó×ª³ÉBean¶ÔÏó
+            //ä½¿ç”¨GSONï¼Œç›´æ¥è½¬æˆBeanå¯¹è±¡
         	System.out.println("!!!!!!!!!!!!!!!!!!!!!!");
         	JsonObject asJsonObject = user.getAsJsonObject();
 System.out.println("id:"+asJsonObject.get("id"));

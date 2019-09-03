@@ -9,7 +9,7 @@ import java.util.List;
 public class ArrayUtils {
 	
 	/**
-	 * °ÑÒ»¸ö±ä³¤²ÎÊı×ª±äÎªÁĞ±í£¬²¢ÇÒ³¤¶È¿É±ä
+	 * æŠŠä¸€ä¸ªå˜é•¿å‚æ•°è½¬å˜ä¸ºåˆ—è¡¨ï¼Œå¹¶ä¸”é•¿åº¦å¯å˜
 	 * @param <T>
 	 * @param t
 	 * @return
@@ -21,33 +21,33 @@ public class ArrayUtils {
 	}
 	
 	/**
-	 * ¶Á²Ù×÷ÒªÖ¸¶¨ÉÏÏŞ
+	 * è¯»æ“ä½œè¦æŒ‡å®šä¸Šé™
 	 * @param list
 	 */
 	public static <E> void read(List<? extends E> list) {
 		System.out.println("**************");
-		for (E e:list) {//¶Á²Ù×÷·ºĞÍÀàĞÍ±ØĞëÊÇEµÄ×ÓÀà²ÅÄÜ×ª»»³ÉE,·ñÔòÃ»·¨×ª»»
+		for (E e:list) {//è¯»æ“ä½œæ³›å‹ç±»å‹å¿…é¡»æ˜¯Eçš„å­ç±»æ‰èƒ½è½¬æ¢æˆE,å¦åˆ™æ²¡æ³•è½¬æ¢
 			System.out.println(e);
 		}
 	}
 	
 	/**
-	 * Ğ´²Ù×÷ÒªÖ¸¶¨ÏÂÏŞ
+	 * å†™æ“ä½œè¦æŒ‡å®šä¸‹é™
 	 * @param list
 	 */
 	public static void write(List<? super BigDecimal> list) {
-		list.add(new BigDecimal("123"));//ÒªÌí¼ÓBigDecimalÀàĞÍ,·ºĞÍÀàĞÍ±ØĞëÊÇËüµÄ¸¸Àà²ÅÄÜÌí¼Ó
+		list.add(new BigDecimal("123"));//è¦æ·»åŠ BigDecimalç±»å‹,æ³›å‹ç±»å‹å¿…é¡»æ˜¯å®ƒçš„çˆ¶ç±»æ‰èƒ½æ·»åŠ 
 		read(list);
 	}
 	
 	/*public static void read(String[] listArr) {
-		for (String e:listArr) {//¶Á²Ù×÷·ºĞÍÀàĞÍ±ØĞëÊÇEµÄ×ÓÀà²ÅÄÜ×ª»»³ÉE,·ñÔòÃ»·¨×ª»»
+		for (String e:listArr) {//è¯»æ“ä½œæ³›å‹ç±»å‹å¿…é¡»æ˜¯Eçš„å­ç±»æ‰èƒ½è½¬æ¢æˆE,å¦åˆ™æ²¡æ³•è½¬æ¢
 			System.out.println(e);
 		}
 	}*/
 	
 	/**
-	 * Ñ­»·Êı×é
+	 * å¾ªç¯æ•°ç»„
 	 * @param arr
 	 */
 	public static <E> void read(E[] arr) {
@@ -57,7 +57,7 @@ public class ArrayUtils {
 	}
 	
 	/**
-	 * ½«list×ª»»³ÉÏàÓ¦ <i><b>·ºĞÍ</b></i> µÄÊı×é
+	 * å°†listè½¬æ¢æˆç›¸åº” <i><b>æ³›å‹</b></i> çš„æ•°ç»„
 	 * @param list
 	 * @param tClass
 	 * @return

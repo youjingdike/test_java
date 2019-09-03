@@ -9,17 +9,17 @@ import java.util.Date;
 public class CreateData1 {
     
     public void createData() {
-      //²åÈëµÄ×î´ó²éÑ¯Âë01PICC450013001362473191085688
+      //æ’å…¥çš„æœ€å¤§æŸ¥è¯¢ç 01PICC450013001362473191085688
         
         String policyQueryNo = "";
         String policyConfirmNo = "";
-        //vinÂë
+        //vinç 
         String frameNo = "";
         String frameLastSixNo = "";
-        //·¢¶¯»úºÅ
+        //å‘åŠ¨æœºå·
         String engineNo = "";
         String engineLastSixNo = "";
-        //ºÅÅÆºÅÂë
+        //å·ç‰Œå·ç 
         String licenseNo = "";
 
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
@@ -46,7 +46,7 @@ public class CreateData1 {
             sb_Conf.append("02PICC45001300136247320");
             sb_FrameNo.append("LVSHBFAB18");
             sb_EngineNo.append("112PPPB");
-            sb_LicenseNo.append("½úDB6");
+            sb_LicenseNo.append("æ™‹DB6");
             
             if (i < 10) {
                 sb_Query.append("000000" + i);

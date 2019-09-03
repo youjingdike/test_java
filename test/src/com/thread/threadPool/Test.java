@@ -20,7 +20,7 @@ public class Test implements Runnable {
 		try {
 			executor.execute(a);
 		} catch (RejectedExecutionException e) {
-			System.out.println(Thread.currentThread()+":"+i+",±¨´íÁË¡£¡£¡£");
+			System.out.println(Thread.currentThread()+":"+i+",æŠ¥é”™äº†ã€‚ã€‚ã€‚");
 		}*/
 		ThreadPoolExecutor executor = TaskThreadPoolExecutor.getThreadPool(this.getClass().getName(),
 				5, 5, 3, TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(10),
@@ -28,20 +28,20 @@ public class Test implements Runnable {
 		
 		System.out.println("executor:"+executor);
 		for (int i=0;i<100000;i++ ){
-			System.out.println(Thread.currentThread().getName()+"´òÓ¡µÄi:"+i+",sttt");
+			System.out.println(Thread.currentThread().getName()+"æ‰“å°çš„i:"+i+",sttt");
 			/*if (i%2==0) {
 				TestRunnable a = new TestRunnable(i);
 				try {
 					executor.execute(a);
 				} catch (RejectedExecutionException e) {
-					System.out.println(Thread.currentThread()+":"+i+",±¨´íÁË¡£¡£¡£");
+					System.out.println(Thread.currentThread()+":"+i+",æŠ¥é”™äº†ã€‚ã€‚ã€‚");
 				}
 			} else {
-				System.out.println(i+",²»ÓÃÏß³Ì³Ø´¦Àí...");
+				System.out.println(i+",ä¸ç”¨çº¿ç¨‹æ± å¤„ç†...");
 			}*/
 			TestRunnable a = new TestRunnable(i);
 			executor.execute(a);
-			System.out.println(Thread.currentThread().getName()+"´òÓ¡µÄi:"+i+",eddd");
+			System.out.println(Thread.currentThread().getName()+"æ‰“å°çš„i:"+i+",eddd");
 		}
 		System.out.println("!!!!");
 		executor.shutdown();

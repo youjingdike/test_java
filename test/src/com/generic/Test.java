@@ -5,16 +5,16 @@ import java.util.List;
 
 public class Test {
 	public static void main(String[] args) {
-		//Õı³£Ê¹ÓÃ,Í¨¹ı²ÎÊıÄÜÈ·¶¨·ºĞÍµÄÀàĞÍ,¾Í²»ĞèÒªÇ¿ÖÆÉùÃ÷·ºĞÍÀàĞÍ
+		//æ­£å¸¸ä½¿ç”¨,é€šè¿‡å‚æ•°èƒ½ç¡®å®šæ³›å‹çš„ç±»å‹,å°±ä¸éœ€è¦å¼ºåˆ¶å£°æ˜æ³›å‹ç±»å‹
 		List<String> list1= ArrayUtils.asList("A","B","C");
 		List<BigDecimal> list4= ArrayUtils.asList(new BigDecimal("3333333"));
 		
-		//²ÎÊıÎª¿Õ,ÏëÖ¸¶¨·µ»ØÀàĞÍ,¾ÍÇ¿ÖÆÉùÃ÷Ò»ÏÂ
+		//å‚æ•°ä¸ºç©º,æƒ³æŒ‡å®šè¿”å›ç±»å‹,å°±å¼ºåˆ¶å£°æ˜ä¸€ä¸‹
 		List<Integer> list2= ArrayUtils.<Integer>asList();
 		List<Integer> list2_1= ArrayUtils.asList(12,12);
 		List<Object> list2_2= ArrayUtils.asList();
 		List list2_3= ArrayUtils.asList();
-		//²ÎÊıÎªÕûÊıºÍĞ¡ÊıµÄ»ìºÏ,È·¶¨²»ÁË·ºĞÍµÄÀàĞÍ,Ö»ÄÜÇ¿ÖÆÉùÃ÷
+		//å‚æ•°ä¸ºæ•´æ•°å’Œå°æ•°çš„æ··åˆ,ç¡®å®šä¸äº†æ³›å‹çš„ç±»å‹,åªèƒ½å¼ºåˆ¶å£°æ˜
 		List<Number> list3= ArrayUtils.<Number>asList(1,2,3.1);
 		
 		ArrayUtils.read(list1);
@@ -39,7 +39,7 @@ public class Test {
 		ArrayUtils.read(array);
 		
 		Object[] obj = new Object[1];
-		//»á±¨´í£ºjava.lang.ClassCastException: [Ljava.lang.Object; cannot be cast to [Ljava.lang.String;
+		//ä¼šæŠ¥é”™ï¼šjava.lang.ClassCastException: [Ljava.lang.Object; cannot be cast to [Ljava.lang.String;
 		//String[] strArr = (String[])obj;
 		
 		String[] ss = new String[1];
@@ -50,7 +50,7 @@ public class Test {
 		String[] strArr1 = (String[])obj1;
 		
 		Object[] objArr = {"A","B"};
-		//»á±¨´í£ºjava.lang.ClassCastException: [Ljava.lang.Object; cannot be cast to [Ljava.lang.String;
+		//ä¼šæŠ¥é”™ï¼šjava.lang.ClassCastException: [Ljava.lang.Object; cannot be cast to [Ljava.lang.String;
 		//String[] s = (String[])objArr;
 		
 		String[] ss1 = {"A","B"};

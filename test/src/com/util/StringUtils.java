@@ -11,24 +11,24 @@ import java.util.Vector;
 import com.sinosoft.sysframework.exceptionlog.UserException;
 
 /**
- * ×Ö·û´®¹¤¾ßÀà
+ * å­—ç¬¦ä¸²å·¥å…·ç±»
  */
 public class StringUtils {
-	public static final double MAX_SET_VALUE = 1000000.0D;// ×î´óÖµ
+	public static final double MAX_SET_VALUE = 1000000.0D;// æœ€å¤§å€¼
 	public static final double PRE_SET_VALUE = 0.0D;
 
 	/**
-	 * ¡¾¹¦ÄÜ¡¿½âÎöË«¾«¶ÈÀàĞÍµÄÊı <br>
-	 * ¡¾¹æÔò¡¿<br>
-	 * 1¡¢Èç¹ûÎªnull»òtrimºó³¤¶ÈÎª0£¬·µ»Ø0.0d¡£ <br>
-	 * 2¡¢Ê¹ÓÃDouble.parseDouble()µÄ½á¹û£º<br>
-	 * 	µ±·µ»ØNaNÊ±£¬·µ»Ø0.0d£» <br>
-	 * 	µ±·µ»Ø-0.0dÊ±£¬·µ»Ø0.0d£¨ËµÃ÷£¬-0.0dÊÇĞ¡ÓÚ0.0dµÄ¡££© <br>
-	 * 	ÎŞ·¨½âÎöÊ±£¬Ò²¾ÍÊÇ·ÇÊı×Ö£¬·µ»Ø0.0d<br>
-	 * 	µ±¹ı´óµÄÊ±ºò£¬±ÈÈç´óÓÚ1000000£¬Å×³öÒì³£¡£<br>
-	 * ¡¾°æ±¾¡¿2007-08-16 ÇÇÓĞÁ¼
-	 * @param value£º´«Èë×Ö·û´®
-	 * @return Ë«¾«¶ÈÊı¾İÀàĞÍ
+	 * ã€åŠŸèƒ½ã€‘è§£æåŒç²¾åº¦ç±»å‹çš„æ•° <br>
+	 * ã€è§„åˆ™ã€‘<br>
+	 * 1ã€å¦‚æœä¸ºnullæˆ–trimåé•¿åº¦ä¸º0ï¼Œè¿”å›0.0dã€‚ <br>
+	 * 2ã€ä½¿ç”¨Double.parseDouble()çš„ç»“æœï¼š<br>
+	 * 	å½“è¿”å›NaNæ—¶ï¼Œè¿”å›0.0dï¼› <br>
+	 * 	å½“è¿”å›-0.0dæ—¶ï¼Œè¿”å›0.0dï¼ˆè¯´æ˜ï¼Œ-0.0dæ˜¯å°äº0.0dçš„ã€‚ï¼‰ <br>
+	 * 	æ— æ³•è§£ææ—¶ï¼Œä¹Ÿå°±æ˜¯éæ•°å­—ï¼Œè¿”å›0.0d<br>
+	 * 	å½“è¿‡å¤§çš„æ—¶å€™ï¼Œæ¯”å¦‚å¤§äº1000000ï¼ŒæŠ›å‡ºå¼‚å¸¸ã€‚<br>
+	 * ã€ç‰ˆæœ¬ã€‘2007-08-16 ä¹”æœ‰è‰¯
+	 * @param valueï¼šä¼ å…¥å­—ç¬¦ä¸²
+	 * @return åŒç²¾åº¦æ•°æ®ç±»å‹
 	 * @throws Exception
 	 */
 	public static double parseDouble(String value) throws Exception {
@@ -38,13 +38,13 @@ public class StringUtils {
 				result = Double.parseDouble(value);
 				if (result == -0.0D) {
 					result = PRE_SET_VALUE;
-				} else if (Double.isNaN(result)) {// Èç¹ûÊÇNaN
+				} else if (Double.isNaN(result)) {// å¦‚æœæ˜¯NaN
 					result = PRE_SET_VALUE;
-				} else if (result > MAX_SET_VALUE) {// ÊıÖµ¹ı´ó£¬Å×³öÒì³£
-					throw new UserException(-98, 9201, "StringUtils", "½Ó¿ÚÊı¾İ´íÎó¡£ÊıÖµ¹ı´ó¡£");
+				} else if (result > MAX_SET_VALUE) {// æ•°å€¼è¿‡å¤§ï¼ŒæŠ›å‡ºå¼‚å¸¸
+					throw new UserException(-98, 9201, "StringUtils", "æ¥å£æ•°æ®é”™è¯¯ã€‚æ•°å€¼è¿‡å¤§ã€‚");
 				}
 			}
-		} catch (NumberFormatException e) {// Èç¹û²»ÊÇÊı×Ö
+		} catch (NumberFormatException e) {// å¦‚æœä¸æ˜¯æ•°å­—
 			result = PRE_SET_VALUE;
 		} catch (UserException e1) {
 			throw e1;
@@ -53,11 +53,11 @@ public class StringUtils {
 	}
 
 	/**
-	 * È¥µôÇ°ºó¿Õ¸ñ
+	 * å»æ‰å‰åç©ºæ ¼
 	 * 
 	 * @param value
-	 *            ´«Èë´®
-	 * @return ·µ»ØString
+	 *            ä¼ å…¥ä¸²
+	 * @return è¿”å›String
 	 */
 	public static String trim(String value) {
 		String result = value;
@@ -70,11 +70,11 @@ public class StringUtils {
 	}
 
 	/**
-	 * Trim ,¼æÈİ¸ñÊ½ÓÃ
+	 * Trim ,å…¼å®¹æ ¼å¼ç”¨
 	 * 
 	 * @param value
 	 *            byte[]
-	 * @return ·µ»Ø byte[]
+	 * @return è¿”å› byte[]
 	 */
 	public static byte[] trim(byte[] value) {
 		byte[] result = value;
@@ -82,11 +82,11 @@ public class StringUtils {
 	}
 
 	/**
-	 * ½«Null×ª»»Îª"0"
+	 * å°†Nullè½¬æ¢ä¸º"0"
 	 * 
 	 * @param value
-	 *            ´«Èë´®
-	 * @return ·µ»ØString
+	 *            ä¼ å…¥ä¸²
+	 * @return è¿”å›String
 	 */
 	public static String convertNullToZero(String value) {
 		String result = value;
@@ -97,11 +97,11 @@ public class StringUtils {
 	}
 
 	/**
-	 * ½«Null×ª»»Îª""
+	 * å°†Nullè½¬æ¢ä¸º""
 	 * 
 	 * @param source
-	 *            ´«Èë´®
-	 * @return ·µ»ØString
+	 *            ä¼ å…¥ä¸²
+	 * @return è¿”å›String
 	 */
 	public static String convertNullToZeroString(String source) {
 		if (source == null) {
@@ -114,11 +114,11 @@ public class StringUtils {
 	}
 
 	/**
-	 * ½«×Ö·û´®µÄµÚÒ»¸ö×Ö·ûĞ¡Ğ´
+	 * å°†å­—ç¬¦ä¸²çš„ç¬¬ä¸€ä¸ªå­—ç¬¦å°å†™
 	 * 
 	 * @param iString
-	 *            ´«Èë×Ö·û´®
-	 * @return ´«³ö×Ö·û´®
+	 *            ä¼ å…¥å­—ç¬¦ä¸²
+	 * @return ä¼ å‡ºå­—ç¬¦ä¸²
 	 */
 	public static String lowerCaseFirstChar(String iString) {
 		String newString;
@@ -128,11 +128,11 @@ public class StringUtils {
 	}
 
 	/**
-	 * ½«×Ö·û´®µÄµÚÒ»¸ö×Ö·û´óĞ´
+	 * å°†å­—ç¬¦ä¸²çš„ç¬¬ä¸€ä¸ªå­—ç¬¦å¤§å†™
 	 * 
 	 * @param iString
-	 *            ´«Èë×Ö·û´®
-	 * @return ´«³ö×Ö·û´®
+	 *            ä¼ å…¥å­—ç¬¦ä¸²
+	 * @return ä¼ å‡ºå­—ç¬¦ä¸²
 	 */
 	public static String upperCaseFirstChar(String iString) {
 		String newString;
@@ -142,11 +142,11 @@ public class StringUtils {
 	}
 
 	/**
-	 * µÃµ½¶ÌÎÄ¼şÃû
+	 * å¾—åˆ°çŸ­æ–‡ä»¶å
 	 * 
 	 * @param fileName
-	 *            ÎÄ¼şÃû
-	 * @return ¶ÌÎÄ¼şÃû
+	 *            æ–‡ä»¶å
+	 * @return çŸ­æ–‡ä»¶å
 	 */
 	public static String getShortFileName(String fileName) {
 		String shortFileName = "";
@@ -164,31 +164,31 @@ public class StringUtils {
 	}
 
 	/**
-	 * ½«×Ö·û´®°´ÕÕÖ¸¶¨µÄ·Ö¸ô×Ö·û½øĞĞ²ğ·Ö,·µ»Ø²ğ·ÖºóµÄ×Ö·û´®Êı×é
+	 * å°†å­—ç¬¦ä¸²æŒ‰ç…§æŒ‡å®šçš„åˆ†éš”å­—ç¬¦è¿›è¡Œæ‹†åˆ†,è¿”å›æ‹†åˆ†åçš„å­—ç¬¦ä¸²æ•°ç»„
 	 * 
 	 * @param originalString
-	 *            ´ı²ğ·ÖµÄ×Ö·û´®
+	 *            å¾…æ‹†åˆ†çš„å­—ç¬¦ä¸²
 	 * @param delimiterString
-	 *            ·Ö¸ô×Ö·û´®
-	 * @return ×Ö·û´®Êı×é
+	 *            åˆ†éš”å­—ç¬¦ä¸²
+	 * @return å­—ç¬¦ä¸²æ•°ç»„
 	 */
 	public static String[] split(String originalString, String delimiterString) {
 		int index = 0;
-		String[] returnArray = null; // ·µ»ØÖµ×Ö·û´®Êı×é
-		int length = 0; // Êı×éµÄ´óĞ¡
+		String[] returnArray = null; // è¿”å›å€¼å­—ç¬¦ä¸²æ•°ç»„
+		int length = 0; // æ•°ç»„çš„å¤§å°
 
-		// nullÖµĞ£Ñé
+		// nullå€¼æ ¡éªŒ
 		if (originalString == null || delimiterString == null) {
 			return null;
 		}
 
-		// ¿Õ´®Ğ£Ñé
+		// ç©ºä¸²æ ¡éªŒ
 		if (originalString.equals("") || delimiterString.equals("")
 				|| originalString.length() < delimiterString.length()) {
 			return new String[] { originalString };
 		}
 
-		// ¼ÆËã×Ö·û´®ÓĞ¶àÉÙ¸ö·Ö¸ô·û
+		// è®¡ç®—å­—ç¬¦ä¸²æœ‰å¤šå°‘ä¸ªåˆ†éš”ç¬¦
 		String strTemp = originalString;
 		while (strTemp != null && !strTemp.equals("")) {
 			index = strTemp.indexOf(delimiterString);
@@ -200,7 +200,7 @@ public class StringUtils {
 		}
 		returnArray = new String[++length];
 
-		// Éú³É×Ö·û´®Êı×é
+		// ç”Ÿæˆå­—ç¬¦ä¸²æ•°ç»„
 		for (int i = 0; i < length - 1; i++) {
 			index = originalString.indexOf(delimiterString);
 			returnArray[i] = originalString.substring(0, index);
@@ -213,11 +213,11 @@ public class StringUtils {
 	}
 
 	/**
-	 * µÃµ½Á÷µÄ³¤¶È
+	 * å¾—åˆ°æµçš„é•¿åº¦
 	 * 
 	 * @param inputStream
 	 *            inputStream
-	 * @return Á÷µÄ³¤¶È
+	 * @return æµçš„é•¿åº¦
 	 * @throws Exception
 	 */
 	public static int getStreamLength(InputStream inputStream) throws Exception {
@@ -261,11 +261,11 @@ public class StringUtils {
 	}
 
 	/**
-	 * ´ÓÁ÷ÖĞµÃµ½×Ö·ûÊı×é
+	 * ä»æµä¸­å¾—åˆ°å­—ç¬¦æ•°ç»„
 	 * 
 	 * @param is
 	 *            InputStream
-	 * @return×Ö·ûÊı×é
+	 * @returnå­—ç¬¦æ•°ç»„
 	 * @throws Exception
 	 */
 	public static byte[] getByteArrayFromInputStream(InputStream is)
@@ -287,13 +287,13 @@ public class StringUtils {
 	}
 
 	/**
-	 * Éú³ÉÒ»¸öÌî³ä×Ö·û´®
+	 * ç”Ÿæˆä¸€ä¸ªå¡«å……å­—ç¬¦ä¸²
 	 * 
 	 * @param value
 	 *            value
 	 * @param length
 	 *            length
-	 * @return Ìî³ä×Ö·û´®
+	 * @return å¡«å……å­—ç¬¦ä¸²
 	 */
 	public static String newString(String value, int length) {
 		StringBuffer buffer = new StringBuffer();
@@ -308,7 +308,7 @@ public class StringUtils {
 	}
 
 	/**
-	 * ³éÑù
+	 * æŠ½æ ·
 	 * 
 	 * @param source
 	 *            source Collection
@@ -330,7 +330,7 @@ public class StringUtils {
 	}
 
 	/**
-	 * È¡µÃËæ»úÊı×é
+	 * å–å¾—éšæœºæ•°ç»„
 	 * 
 	 * @param maxNo
 	 *            maxNo
@@ -364,11 +364,11 @@ public class StringUtils {
 	}
 
 	/**
-	 * ×Ö·û´® ×ª»»³ÉHTML¸ñÊ½
+	 * å­—ç¬¦ä¸² è½¬æ¢æˆHTMLæ ¼å¼
 	 * 
 	 * @param strInValue
-	 *            ´«Èë×Ö·û´®
-	 * @return String ´«Èë×Ö·û´®
+	 *            ä¼ å…¥å­—ç¬¦ä¸²
+	 * @return String ä¼ å…¥å­—ç¬¦ä¸²
 	 */
 	public static String toHTMLFormat(String strInValue) {
 		String strOutValue = "";
@@ -399,52 +399,52 @@ public class StringUtils {
 	}
 
 	/**
-	 * ½«Ö¸¶¨µÄ×Ö·û´®°´¸ø¶¨µÄ×î´ó³¤¶È½øĞĞ·Ö¸î£¬·µ»Ø·Ö¸îºóµÄ×Ö·û´®Êı×é
+	 * å°†æŒ‡å®šçš„å­—ç¬¦ä¸²æŒ‰ç»™å®šçš„æœ€å¤§é•¿åº¦è¿›è¡Œåˆ†å‰²ï¼Œè¿”å›åˆ†å‰²åçš„å­—ç¬¦ä¸²æ•°ç»„
 	 * 
 	 * @param strMain
-	 *            ±»²ğ·ÖµÄ´®
+	 *            è¢«æ‹†åˆ†çš„ä¸²
 	 * @param intMaxLength
-	 *            Ã¿Ò»ĞĞ½á¹û´®µÄ³¤¶È×î´óÖµ
-	 * @return Object ·Ö¸î×Ö·û´®ºóµÄ×Ö·û´®Êı×é
+	 *            æ¯ä¸€è¡Œç»“æœä¸²çš„é•¿åº¦æœ€å¤§å€¼
+	 * @return Object åˆ†å‰²å­—ç¬¦ä¸²åçš„å­—ç¬¦ä¸²æ•°ç»„
 	 */
 	public static Object split(String strMain, int intMaxLength) {
-		// ¶¨Òå±äÁ¿
-		Vector vector = new Vector(); // ´æ·Å½ØºóµÄ×Ö·û´®
-		String strText = ""; // ÁÙÊ±´æ·Å×Ö·û´®
-		byte[] arrByte = null; // ±»²ğ·ÖµÄ×Ö·û´®Éú³ÉµÄByteÊı×é
-		int intStartIndex = 0; // ÓÎ±êÆğÊ¼Î»ÖÃ
-		int intEndIndex = 0; // ÓÎ±êÖÕÖ¹Î»ÖÃ
+		// å®šä¹‰å˜é‡
+		Vector vector = new Vector(); // å­˜æ”¾æˆªåçš„å­—ç¬¦ä¸²
+		String strText = ""; // ä¸´æ—¶å­˜æ”¾å­—ç¬¦ä¸²
+		byte[] arrByte = null; // è¢«æ‹†åˆ†çš„å­—ç¬¦ä¸²ç”Ÿæˆçš„Byteæ•°ç»„
+		int intStartIndex = 0; // æ¸¸æ ‡èµ·å§‹ä½ç½®
+		int intEndIndex = 0; // æ¸¸æ ‡ç»ˆæ­¢ä½ç½®
 		int index = 0;
 		int count = 0;
-		String[] arrReturn = null; // ·µ»Ø
+		String[] arrReturn = null; // è¿”å›
 
-		// ÌØÊâÖµ´¦Àí£¨³¤¶È<=1¡¢¿Õ¡¢¿Õ×Ö·û´®£©
+		// ç‰¹æ®Šå€¼å¤„ç†ï¼ˆé•¿åº¦<=1ã€ç©ºã€ç©ºå­—ç¬¦ä¸²ï¼‰
 		if (intMaxLength <= 1) {
 			System.err.println("error: intMaxLength <= 1");
 			return null;
 		}
 		if (strMain == null) {
-			return new String[0]; // ¿ÕÊı×é
+			return new String[0]; // ç©ºæ•°ç»„
 		}
 		if (strMain.trim().equals("")) {
-			return new String[] { "" }; // ¿Õ×Ö·û´®
+			return new String[] { "" }; // ç©ºå­—ç¬¦ä¸²
 		}
 
-		// Õı³£´¦Àí
+		// æ­£å¸¸å¤„ç†
 		arrByte = strMain.getBytes();
-		intEndIndex = 0; // ÉèÖÃ×î³õÖµ
+		intEndIndex = 0; // è®¾ç½®æœ€åˆå€¼
 
 		while (true) {
-			// ³õ²½ÉèÖÃÓÎ±êÎ»ÖÃ
+			// åˆæ­¥è®¾ç½®æ¸¸æ ‡ä½ç½®
 			intStartIndex = intEndIndex;
 			intEndIndex = intStartIndex + intMaxLength;
 
-			// ÆğÊ¼Î»ÖÃÒÑ¾­³¬¹ıÊı×é³¤¶È
+			// èµ·å§‹ä½ç½®å·²ç»è¶…è¿‡æ•°ç»„é•¿åº¦
 			if (intStartIndex >= arrByte.length) {
 				break;
 			}
 
-			// ÖÕÖ¹Î»ÖÃÒÑ¾­³¬¹ıÊı×é³¤¶È
+			// ç»ˆæ­¢ä½ç½®å·²ç»è¶…è¿‡æ•°ç»„é•¿åº¦
 			if (intEndIndex > arrByte.length) {
 				intEndIndex = arrByte.length;
 				strText = new String(arrByte, intStartIndex, intEndIndex
@@ -453,31 +453,31 @@ public class StringUtils {
 				break;
 			}
 
-			// ¼ì²éÄ©Î²µÄ°ë¸öºº×ÖÎÊÌâ
+			// æ£€æŸ¥æœ«å°¾çš„åŠä¸ªæ±‰å­—é—®é¢˜
 			count = 0;
 			for (index = intStartIndex; index < intEndIndex; index++) {
 				if (arrByte[index] < 0) {
 					count++;
 				}
 			}
-			// ³öÏÖ°ë¸öºº×Ö
+			// å‡ºç°åŠä¸ªæ±‰å­—
 			if (count % 2 != 0) {
 				intEndIndex--;
 
-				// ¹¹Ôì×Ö´®
+				// æ„é€ å­—ä¸²
 			}
 			strText = new String(arrByte, intStartIndex, intEndIndex
 					- intStartIndex);
 			vector.add(strText);
 		} // end while
 
-		// ×ª³É×Ö·û´®Êı×é
+		// è½¬æˆå­—ç¬¦ä¸²æ•°ç»„
 		arrReturn = new String[vector.size()];
 		for (index = 0; index < vector.size(); index++) {
 			arrReturn[index] = (String) vector.get(index);
 		}
 
-		// ·µ»Ø
+		// è¿”å›
 		return arrReturn;
 	}
 
@@ -492,7 +492,7 @@ public class StringUtils {
 	}
 
 	public static String right(String s, int length) {
-		// Ìõ¼ş
+		// æ¡ä»¶
 		if (s == null) {
 			return s;
 		}
@@ -501,7 +501,7 @@ public class StringUtils {
 			return "";
 		}
 
-		// ³¤¶È¹ıĞ¡
+		// é•¿åº¦è¿‡å°
 		int count = s.length();
 
 		if (count <= length) {
@@ -512,7 +512,7 @@ public class StringUtils {
 	}
 	
 	/**
-	 *  ÅĞ¶ÏÒ»¸ö×Ö·û´®ÊÇ·ñÎª¿Õ
+	 *  åˆ¤æ–­ä¸€ä¸ªå­—ç¬¦ä¸²æ˜¯å¦ä¸ºç©º
 	 * @param str
 	 * @return
 	 * @author wmz

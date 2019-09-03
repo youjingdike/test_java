@@ -14,13 +14,13 @@ public class CreateData {
     public void createData() {
         String policyQueryNo = "";
         String policyConfirmNo = "";
-        //vinÂë
+        //vinç 
         String frameNo = "";
         String frameLastSixNo = "";
-        //·¢¶¯»úºÅ
+        //å‘åŠ¨æœºå·
         String engineNo = "";
         String engineLastSixNo = "";
-        //ºÅÅÆºÅÂë
+        //å·ç‰Œå·ç 
         String licenseNo = "";
 
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
@@ -47,7 +47,7 @@ public class CreateData {
             sb_Conf.append("02PICC45001300136247323");
             sb_FrameNo.append("LVSHBFAF18");
             sb_EngineNo.append("112PPPP");
-            sb_LicenseNo.append("½úDJ6");
+            sb_LicenseNo.append("æ™‹DJ6");
             if (i < 10) {
                 sb_Query.append("000000" + i);
                 sb_Conf.append("000000" + i);

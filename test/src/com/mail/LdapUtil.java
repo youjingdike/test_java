@@ -28,10 +28,10 @@ public class LdapUtil {
 		
 		try {
 			ctx = new InitialDirContext(env);
-			dmslog.info(userName +" is authenticated£°");
+			dmslog.info(userName +" is authenticatedÔºÅ");
 			result = true;
 		} catch (Exception e) {
-			dmslog.error(userName+" is not authenticated£°", e.getCause());
+			dmslog.error(userName+" is not authenticatedÔºÅ", e.getCause());
 			result = false;
 		}finally{
 			if (ctx != null){

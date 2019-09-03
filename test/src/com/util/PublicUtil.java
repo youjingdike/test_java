@@ -29,7 +29,7 @@ public class PublicUtil {
 		}
 	}
 	
-	/**@description		处理e-plant平台乱码问题
+	/**@description		澶勭悊e-plant骞冲彴涔辩爜闂
 	 * @param str
 	 * @return
 	 * @author	nieqingyun
@@ -95,7 +95,7 @@ public class PublicUtil {
 	}
 	
 	/**
-	 * 加载资源文件
+	 * 鍔犺浇璧勬簮鏂囦欢
 	 * @param file
 	 * @return
 	 */
@@ -119,7 +119,7 @@ public class PublicUtil {
   }
 	
 	/**
-	 * 将byte转换为int
+	 * 灏哹yte杞崲涓篿nt
 	 * @param b
 	 * @return
 	 */

@@ -48,13 +48,13 @@ public class TestUseJunit {
     
     private static String asti = "ab";
     
-    //ÔÚ±àÒëÊ±µ÷ÓÃ¸ÃÓï¾ä¿é
+    //åœ¨ç¼–è¯‘æ—¶è°ƒç”¨è¯¥è¯­å¥å—
     /*static {
-        System.out.println("nihao:ÎÒÊÇstatic");
+        System.out.println("nihao:æˆ‘æ˜¯static");
     }*/
-    //ÔÚÃ¿´Îµ÷ÓÃ¹¹ÔìÆ÷Ö®Ç°µ÷ÓÃ¸ÃÓï¾ä¿é
+    //åœ¨æ¯æ¬¡è°ƒç”¨æ„é€ å™¨ä¹‹å‰è°ƒç”¨è¯¥è¯­å¥å—
     /*{
-        System.out.println("nihao:ÎÒ²»ÊÇstatic");
+        System.out.println("nihao:æˆ‘ä¸æ˜¯static");
     }*/
     public static void main(String[] args) {
         System.out.println("sssssssssssssssss" + new Man("x").getClass());
@@ -68,14 +68,14 @@ public class TestUseJunit {
         assert i == 5;
     }
     
-    //µ÷ÓÃÕâ¸ö·½·¨¼´¿É´«¶à¸ö²ÎÊı£¬Ò²¿É´«Êı×é
+    //è°ƒç”¨è¿™ä¸ªæ–¹æ³•å³å¯ä¼ å¤šä¸ªå‚æ•°ï¼Œä¹Ÿå¯ä¼ æ•°ç»„
     void testArgs(int... is) {
         for (int i : is) {
             System.out.println(i);
         }
     }
     
-    //µ÷ÓÃÕâ¸ö·½·¨±ØĞëÓÃÊı×é
+    //è°ƒç”¨è¿™ä¸ªæ–¹æ³•å¿…é¡»ç”¨æ•°ç»„
     void testArgs2(int[] is) {
         for (int i : is) {
             System.out.println(i);
@@ -86,7 +86,7 @@ public class TestUseJunit {
     public void testMethodArg() {
         new TestUseJunit().testArgs(5,5,5,5,0);
         System.out.println("****************");
-        //testArgs2²»ÄÜÕâÑù´«²Î
+        //testArgs2ä¸èƒ½è¿™æ ·ä¼ å‚
         //new TestUseJunit().testArgs2(5,5,5,5,0);
         new TestUseJunit().testArgs(new int[]{1,2,3,4,5,6,8});
         System.out.println("****************");
@@ -95,13 +95,13 @@ public class TestUseJunit {
     
     @Test
     public void testInterger() {
-        //(×Ô¶¯×°Ïä²ğÏäÊ±£¬¶ÔÓÚ-128-127Ö®¼äµÄÖµ,±àÒëÆ÷ÈÔÈ»»á°ÑËüµ±×ö»ù±¾ÀàĞÍ´¦Àí¡£)
-        //°´¶ÔÏóÀàĞÍ´¦Àí
+        //(è‡ªåŠ¨è£…ç®±æ‹†ç®±æ—¶ï¼Œå¯¹äº-128-127ä¹‹é—´çš„å€¼,ç¼–è¯‘å™¨ä»ç„¶ä¼šæŠŠå®ƒå½“åšåŸºæœ¬ç±»å‹å¤„ç†ã€‚)
+        //æŒ‰å¯¹è±¡ç±»å‹å¤„ç†
         Integer s = new Integer(9);
         Integer t = new Integer(9);
         Integer ii = 255;
         Integer jj = 255;
-        //°´»ù´¡ÀàĞÍ´¦Àí
+        //æŒ‰åŸºç¡€ç±»å‹å¤„ç†
         int i = new Integer(2551);
         int j = new Integer(2551);
         Integer ss = 9;
@@ -131,7 +131,7 @@ public class TestUseJunit {
         BigDecimal bgBigDecimal = new BigDecimal(12);
         bgBigDecimal = bgBigDecimal.add(new BigDecimal(5));
         System.out.println(bgBigDecimal.intValue());
-        int iiii = 017;//ÕâÊÇ8½øÖÆÊı
+        int iiii = 017;//è¿™æ˜¯8è¿›åˆ¶æ•°
         System.out.println(iiii);
         System.out.println("suspicious: \12"+"8");
         
@@ -145,7 +145,7 @@ public class TestUseJunit {
         System.out.println(sum);
         short s1 = 1;
         short s2 = 1;
-//        s1 = s1 + 1; //´íÎó
+//        s1 = s1 + 1; //é”™è¯¯
         s1 = (short)(s1 + 1);
         s2 += 1;
         char c = '\u0061';
@@ -175,14 +175,14 @@ public class TestUseJunit {
     @Test
     public void testBigDecimal() {
         double d1 = 2.13;
-        DecimalFormat df = new DecimalFormat("0.00");  //Õâ¸ö²»ÊÇËÄÉáÎåÈë
+        DecimalFormat df = new DecimalFormat("0.00");  //è¿™ä¸ªä¸æ˜¯å››èˆäº”å…¥
         System.out.println(df.format(d1));
         
         System.out.println(1234567.0);
-        System.out.println(12345678.0); //doubleÀàĞÍ³¬¹ı7Îª¾Í×ª»»Îª¿ÆÑ§¼¼Êõ·¨
+        System.out.println(12345678.0); //doubleç±»å‹è¶…è¿‡7ä¸ºå°±è½¬æ¢ä¸ºç§‘å­¦æŠ€æœ¯æ³•
         
         System.out.println(new BigDecimal(0.1));  
-        System.out.println(new BigDecimal("0.1")); //Òª¾«È·¼ÆËã¾ÍÓÃÕâ¸ö
+        System.out.println(new BigDecimal("0.1")); //è¦ç²¾ç¡®è®¡ç®—å°±ç”¨è¿™ä¸ª
         
         double d2 = 1.01;
         double d3 = d1 + d2;
@@ -194,7 +194,7 @@ public class TestUseJunit {
         System.out.println("d4 :" + d4);
         
         int i = 1;
-        int j = BigDecimal.ROUND_HALF_UP; //ÉáÈëµÄÄ£Ê½
+        int j = BigDecimal.ROUND_HALF_UP; //èˆå…¥çš„æ¨¡å¼
 //        int j = BigDecimal.ROUND_UP;
         double d5 = b1.add(b2).setScale(i, j).doubleValue();
         System.out.println("d5:" + d5);
@@ -232,9 +232,9 @@ public class TestUseJunit {
         String end = sim.format(d);
         System.out.println(end);
         if (!endTime.equals(end)) {
-            System.out.println("²»ÏàµÈ");
+            System.out.println("ä¸ç›¸ç­‰");
         } else {
-            System.out.println("ÏàµÈ");
+            System.out.println("ç›¸ç­‰");
         }
     }
      
@@ -260,7 +260,7 @@ public class TestUseJunit {
 //      list.add(null);
 //      list.add(null);
 //      list.add(null);
-        list.remove(null);      //Ö»É¾³ıµÚÒ»¸önull
+        list.remove(null);      //åªåˆ é™¤ç¬¬ä¸€ä¸ªnull
         System.out.println(list.get(0));
         System.out.println(list.size());
         
@@ -280,10 +280,10 @@ public class TestUseJunit {
     
     @Test
     public void testEqualsAndHaseCode() {
-        //****************²âÊÔequalsºÍhashCode·½·¨µÄÖØĞ´£¨ÏÂÁĞÇé¿öÒªÖØĞ´£¬²¢ÇÒÁ½¸ö·½·¨¶¼ÖØĞ´£©
-        //1.·ÅÈëCollectionÈİÆ÷ÖĞµÄ×Ô¶¨Òå¶ÔÏó£¬µ÷ÓÃremove,containsµÈ·½·¨£»
-        //2.Òª½«ÎÒÃÇ×Ô¶¨ÒåµÄ¶ÔÏó·ÅÈëHashSetÖĞ´¦Àí£»
-        //3.Òª½«ÎÒÃÇ×Ô¶¨ÒåµÄ¶ÔÏó×÷ÎªHashMapµÄkey´¦Àí£»
+        //****************æµ‹è¯•equalså’ŒhashCodeæ–¹æ³•çš„é‡å†™ï¼ˆä¸‹åˆ—æƒ…å†µè¦é‡å†™ï¼Œå¹¶ä¸”ä¸¤ä¸ªæ–¹æ³•éƒ½é‡å†™ï¼‰
+        //1.æ”¾å…¥Collectionå®¹å™¨ä¸­çš„è‡ªå®šä¹‰å¯¹è±¡ï¼Œè°ƒç”¨remove,containsç­‰æ–¹æ³•ï¼›
+        //2.è¦å°†æˆ‘ä»¬è‡ªå®šä¹‰çš„å¯¹è±¡æ”¾å…¥HashSetä¸­å¤„ç†ï¼›
+        //3.è¦å°†æˆ‘ä»¬è‡ªå®šä¹‰çš„å¯¹è±¡ä½œä¸ºHashMapçš„keyå¤„ç†ï¼›
         Map m = new HashMap();
         Man man = new Man("xing");
         Man man1 = new Man("xing");
@@ -356,7 +356,7 @@ public class TestUseJunit {
         map.put("1", "nihao");
         map.put("2", "haljflsak");
         
-        //*****************±éÀúmapµÄ³£ÓÃ·½·¨
+        //*****************éå†mapçš„å¸¸ç”¨æ–¹æ³•
         Set<Entry<String,String>> set = map.entrySet();
         Iterator<Entry<String, String>> entry = set.iterator();
         while(entry.hasNext()) { 
@@ -407,7 +407,7 @@ public class TestUseJunit {
         s.append("'");
         System.out.println(s.toString());
         
-        //String ss = (String)null; //ÕâÖÖĞ´·¨ÓĞÊ²Ã´ÒâÒå£¿
+        //String ss = (String)null; //è¿™ç§å†™æ³•æœ‰ä»€ä¹ˆæ„ä¹‰ï¼Ÿ
         
         String st = "1";
         System.out.println(!(st == null || "".equals(st)));
@@ -434,7 +434,7 @@ public class TestUseJunit {
             e.printStackTrace();
         }
         try {
-            System.out.println(" ³¤¶È-----"+s12.length());
+            System.out.println(" é•¿åº¦-----"+s12.length());
             System.out.println("3-----"+s12.substring(0, 1));
             System.out.println("4-----"+s12.substring(1, 2));
             System.out.println("5-----"+s12.substring(2, 3));
@@ -459,16 +459,16 @@ public class TestUseJunit {
         String str1 = "abc";  
         String str2 = "abc";  
         System.out.println(str1 == str2);//true  
-        //¿ÉÒÔ¿´³östr1ºÍstr2ÊÇÖ¸ÏòÍ¬Ò»¸ö¶ÔÏóµÄ¡£  
-        //Java´úÂë  
+        //å¯ä»¥çœ‹å‡ºstr1å’Œstr2æ˜¯æŒ‡å‘åŒä¸€ä¸ªå¯¹è±¡çš„ã€‚  
+        //Javaä»£ç   
         String str1n = new String ("abc");  
         String str2n = new String ("abc");  
         System.out.println(str1n == str2n);  //false
-        //ÓÃnewµÄ·½Ê½ÊÇÉú³É²»Í¬µÄ¶ÔÏó,Ã¿Ò»´ÎÉú³ÉÒ»¸ö¡£  
+        //ç”¨newçš„æ–¹å¼æ˜¯ç”Ÿæˆä¸åŒçš„å¯¹è±¡,æ¯ä¸€æ¬¡ç”Ÿæˆä¸€ä¸ªã€‚  
 
         String s0 = "kvill";  
         String s1 = "kvill";  
-        String s2 = "kv" + "ill";  //ÔÚ±àÒëÊ±»á½øĞĞÓÅ»¯£¬È¥µô¼ÓºÅÖ±½Ó±àÒë³ÉÒ»¸ö×Ö·û´®£¬ÕâÊ±»º³åÇøÓĞ£¬¾ÍÖ±½ÓÄÃ
+        String s2 = "kv" + "ill";  //åœ¨ç¼–è¯‘æ—¶ä¼šè¿›è¡Œä¼˜åŒ–ï¼Œå»æ‰åŠ å·ç›´æ¥ç¼–è¯‘æˆä¸€ä¸ªå­—ç¬¦ä¸²ï¼Œè¿™æ—¶ç¼“å†²åŒºæœ‰ï¼Œå°±ç›´æ¥æ‹¿
         System.out.println(s0==s1); //true   
         System.out.println(s0==s2);//true  
 
@@ -484,7 +484,7 @@ public class TestUseJunit {
         String st2 = new String("kvill");  
         System.out.println( st0 == st1 );//false  
         st1.intern();  
-        st2 = st2.intern(); //°Ñ³£Á¿³ØÖĞ"kvill"µÄÒıÓÃ¸³¸øs2   
+        st2 = st2.intern(); //æŠŠå¸¸é‡æ± ä¸­"kvill"çš„å¼•ç”¨èµ‹ç»™s2   
         System.out.println( st0==st1);  //false
         System.out.println( st0==st1.intern() );//true  
         System.out.println( st0==st2 );//true
@@ -496,15 +496,15 @@ public class TestUseJunit {
         System.out.println( ts2 == ts1.intern() );//true
 
         String a = "a1";
-        String b = "a" + 1; //ÔÚ±àÒëÊ±»á½øĞĞÓÅ»¯£¬È¥µô¼ÓºÅÖ±½Ó±àÒë³ÉÒ»¸ö×Ö·û´®£¬ÕâÊ±»º³åÇøÓĞ£¬¾ÍÖ±½ÓÄÃ
+        String b = "a" + 1; //åœ¨ç¼–è¯‘æ—¶ä¼šè¿›è¡Œä¼˜åŒ–ï¼Œå»æ‰åŠ å·ç›´æ¥ç¼–è¯‘æˆä¸€ä¸ªå­—ç¬¦ä¸²ï¼Œè¿™æ—¶ç¼“å†²åŒºæœ‰ï¼Œå°±ç›´æ¥æ‹¿
         System.out.println((a == b)); //true
         String as ="atrue";
-        String bs = "a" + "true";  //ÔÚ±àÒëÊ±»á½øĞĞÓÅ»¯£¬È¥µô¼ÓºÅÖ±½Ó±àÒë³ÉÒ»¸ö×Ö·û´®£¬ÕâÊ±»º³åÇøÓĞ£¬¾ÍÖ±½ÓÄÃ
+        String bs = "a" + "true";  //åœ¨ç¼–è¯‘æ—¶ä¼šè¿›è¡Œä¼˜åŒ–ï¼Œå»æ‰åŠ å·ç›´æ¥ç¼–è¯‘æˆä¸€ä¸ªå­—ç¬¦ä¸²ï¼Œè¿™æ—¶ç¼“å†²åŒºæœ‰ï¼Œå°±ç›´æ¥æ‹¿
         System.out.println((as == bs));//true 
         String ast ="a3.4";
-        String bst = "a" + 3.4; //ÔÚ±àÒëÊ±»á½øĞĞÓÅ»¯£¬È¥µô¼ÓºÅÖ±½Ó±àÒë³ÉÒ»¸ö×Ö·û´®£¬ÕâÊ±»º³åÇøÓĞ£¬¾ÍÖ±½ÓÄÃ
+        String bst = "a" + 3.4; //åœ¨ç¼–è¯‘æ—¶ä¼šè¿›è¡Œä¼˜åŒ–ï¼Œå»æ‰åŠ å·ç›´æ¥ç¼–è¯‘æˆä¸€ä¸ªå­—ç¬¦ä¸²ï¼Œè¿™æ—¶ç¼“å†²åŒºæœ‰ï¼Œå°±ç›´æ¥æ‹¿
         System.out.println((ast == bst)); //true
-        String bss = "a" + 3.4; //ÔÚ±àÒëÊ±»á½øĞĞÓÅ»¯£¬È¥µô¼ÓºÅÖ±½Ó±àÒë³ÉÒ»¸ö×Ö·û´®£¬ÕâÊ±»º³åÇøÓĞ£¬¾ÍÖ±½ÓÄÃ
+        String bss = "a" + 3.4; //åœ¨ç¼–è¯‘æ—¶ä¼šè¿›è¡Œä¼˜åŒ–ï¼Œå»æ‰åŠ å·ç›´æ¥ç¼–è¯‘æˆä¸€ä¸ªå­—ç¬¦ä¸²ï¼Œè¿™æ—¶ç¼“å†²åŒºæœ‰ï¼Œå°±ç›´æ¥æ‹¿
         String ass ="a3.4";
         System.out.println((ass == bss)); //true
         
@@ -551,7 +551,7 @@ public class TestUseJunit {
     @Test
     public void testFileInputStream() {
         /*try {
-            FileInputStream  fis = new  FileInputStream("d:/a.txt");  //ÄÚÈİÊÇ£ºabc
+            FileInputStream  fis = new  FileInputStream("d:/a.txt");  //å†…å®¹æ˜¯ï¼šabc
             int s1 = fis.read();  //97
             int s2 = fis.read();   //98
             int s3 = fis.read();   //99
@@ -569,10 +569,10 @@ public class TestUseJunit {
             e.printStackTrace();
         }*/
         
-        //ÉÏÃæ´úÂëÉı¼¶ÎªÈçÏÂ´úÂë£º
+        //ä¸Šé¢ä»£ç å‡çº§ä¸ºå¦‚ä¸‹ä»£ç ï¼š
         /*FileInputStream  fis =null;
         try {
-            fis = new  FileInputStream("d:/a.txt");  //ÄÚÈİÊÇ£ºabc
+            fis = new  FileInputStream("d:/a.txt");  //å†…å®¹æ˜¯ï¼šabc
             StringBuilder sb = new StringBuilder();
             int temp = 0;
             while((temp=fis.read())!=-1){
@@ -586,13 +586,13 @@ public class TestUseJunit {
         }finally{
             try{
                 if(fis!=null)
-                    fis.close();   //Á÷¶ÔÏó£¬Ê¹ÓÃÍêºó±ØĞë¹Ø±Õ£¡£¡
+                    fis.close();   //æµå¯¹è±¡ï¼Œä½¿ç”¨å®Œåå¿…é¡»å…³é—­ï¼ï¼
             }catch(IOException e){
                 e.printStackTrace();
             }
         }*/
         
-        //Éı¼¶Îª:
+        //å‡çº§ä¸º:
         /*FileInputStream fis = null;
         try {
             fis  = new FileInputStream("d:/a.txt");
@@ -627,14 +627,14 @@ public class TestUseJunit {
         
         long date1 = System.currentTimeMillis();
         try {
-            fis = new FileInputStream("d:/a.txt");  //ÄÚÈİÊÇ£ºabc
+            fis = new FileInputStream("d:/a.txt");  //å†…å®¹æ˜¯ï¼šabc
              
             /*while((temp = fis.read())!=-1){
                 System.out.println(temp);
                 sb.append((char)temp);
             }*/
             
-            //Ê¹ÓÃÊı×é×÷Îª»º´æ£¬¶ÁÈ¡µÄĞ§ÂÊ´ó´óÌá¸ß
+            //ä½¿ç”¨æ•°ç»„ä½œä¸ºç¼“å­˜ï¼Œè¯»å–çš„æ•ˆç‡å¤§å¤§æé«˜
             byte[] buffer = new byte[1024];   
             while((temp=fis.read(buffer))!=-1) {
                 sb.append(new String(buffer,0,temp));
@@ -654,7 +654,7 @@ public class TestUseJunit {
             new File("d:"+File.separator+"a.txt");
         }
         long date2 = System.currentTimeMillis();
-        System.out.println("ºÄÊ±£º"+(date2-date1));
+        System.out.println("è€—æ—¶ï¼š"+(date2-date1));
     }
     
     
@@ -662,7 +662,7 @@ public class TestUseJunit {
     public void testFileOutputStream() {
         
         FileOutputStream fos = null;
-        String string = "¿ª·¢ÉÌ¸½¼ş sdas°µÊ¾·¨´óÊ¦¸µ·É";
+        String string = "å¼€å‘å•†é™„ä»¶ sdasæš—ç¤ºæ³•å¤§å¸ˆå‚…é£";
         try {
             fos = new FileOutputStream("d:/out.txt",true);
             fos.write(string.getBytes());
@@ -683,17 +683,17 @@ public class TestUseJunit {
     @Test
     public void testCopyFile() {
         copyFile("d:/a.txt", "d:/b.txt");
-        copyFileByBuffered("d:/Excel¹«Ê½.pptx", "d:/bbb.pptx");
+        copyFileByBuffered("d:/Excelå…¬å¼.pptx", "d:/bbb.pptx");
     }
     
     @Test
     public void testCopy() {
         File file = new File("D:\\MyDrivers");
-        File file2 = new File("D:/ÊµÑécopy");
+        File file2 = new File("D:/å®éªŒcopy");
         copyDir(file,file2);
     }
     
-    //¸ºÔğcopyÒ»¸öÄ¿Â¼ÏÂÃæËùÓĞµÄÎÄ¼şºÍ×ÓÄ¿Â¼µ½ÁíÒ»¸öÄ¿Â¼
+    //è´Ÿè´£copyä¸€ä¸ªç›®å½•ä¸‹é¢æ‰€æœ‰çš„æ–‡ä»¶å’Œå­ç›®å½•åˆ°å¦ä¸€ä¸ªç›®å½•
     static void copyDir(File file,File file2) {
         boolean is = new File(file2,file.getName()).mkdir();
         System.out.println(is);
@@ -711,7 +711,7 @@ public class TestUseJunit {
     static void copyFile(File src,File dec){
         FileInputStream fis = null;
         FileOutputStream fos = null;
-        byte[] buffer = new byte[1024];  //ÎªÁËÌá¸ßĞ§ÂÊ£¬ÉèÖÃ»º´æÊı×é
+        byte[] buffer = new byte[1024];  //ä¸ºäº†æé«˜æ•ˆç‡ï¼Œè®¾ç½®ç¼“å­˜æ•°ç»„
         int temp = 0;
         try {
             fis = new FileInputStream(src);
@@ -778,7 +778,7 @@ public class TestUseJunit {
             fos = new FileOutputStream(dec);
             bis = new BufferedInputStream(fis);
             bos = new BufferedOutputStream(fos);
-            //ÎŞĞèÊ¹ÓÃ»º´æÊı×é
+            //æ— éœ€ä½¿ç”¨ç¼“å­˜æ•°ç»„
             while((temp=bis.read())!=-1){
                 bos.write(temp);
             }
@@ -787,7 +787,7 @@ public class TestUseJunit {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            //Ôö¼Ó´¦ÀíÁ÷ºó£¬×¢ÒâÁ÷µÄ¹Ø±ÕË³Ğò£¡¡°ºó¿ªµÄÏÈ¹Ø±Õ£¡¡±
+            //å¢åŠ å¤„ç†æµåï¼Œæ³¨æ„æµçš„å…³é—­é¡ºåºï¼â€œåå¼€çš„å…ˆå…³é—­ï¼â€
             try {
                 bos.close();
             } catch (IOException e) {
@@ -829,7 +829,7 @@ public class TestUseJunit {
             }
 
             System.out.println(sb);
-            System.out.println("¶ÁÈ¡µÄ×Ö½ÚÊı£º"+num); 
+            System.out.println("è¯»å–çš„å­—èŠ‚æ•°ï¼š"+num); 
         } finally {
             try {
                 bais.close();
@@ -838,7 +838,7 @@ public class TestUseJunit {
             }
         }
         long date2 = System.currentTimeMillis();
-        System.out.println("ºÄÊ±£º"+(date2-date1));
+        System.out.println("è€—æ—¶ï¼š"+(date2-date1));
 
     }
     
@@ -894,11 +894,11 @@ public class TestUseJunit {
             dos.writeInt(11);
             dos.writeInt(12);
             dos.writeChar('a');
-            dos.writeUTF("ÖĞ‡ø×Ö");
+            dos.writeUTF("ä¸­åœ‹å­—");
             dos.flush();
             
             
-            //´ÓÎÄ¼şÖĞÖ±½Ó¶ÁÈ¡Êı¾İ
+            //ä»æ–‡ä»¶ä¸­ç›´æ¥è¯»å–æ•°æ®
             System.out.println("double: " + dis.readDouble());
             System.out.println("boolean: " + dis.readBoolean());
             System.out.println("int: " + dis.readInt());
@@ -929,8 +929,8 @@ public class TestUseJunit {
             ps = new PrintStream(new FileOutputStream(new File("d:" 
                     + File.separator + "test.txt")));
             ps.print("nihao");
-            ps.println("ÄãºÃ");
-            ps.println("ÄãºÃ");
+            ps.println("ä½ å¥½");
+            ps.println("ä½ å¥½");
             ps.print("nihao");
             ps.print("nihao");
         } catch (FileNotFoundException e) {
@@ -1018,7 +1018,7 @@ public class TestUseJunit {
     
     @Test
     public void testGBK() {
-        String str = "´ò·¢µÚÈı·½";
+        String str = "æ‰“å‘ç¬¬ä¸‰æ–¹";
         byte[] bt = null;
         try {
             bt = str.getBytes("GBK");
@@ -1032,7 +1032,7 @@ public class TestUseJunit {
     
     @Test
     public void testTrimGBK() {
-        String str = "´ó·¢·¢ËÍasdsa¹¦·òÈöµ©·¨";
+        String str = "å¤§å‘å‘é€asdsaåŠŸå¤«æ’’æ—¦æ³•";
         byte[] buffer = null;
         try {
             buffer = str.getBytes("GBK");
@@ -1046,7 +1046,7 @@ public class TestUseJunit {
     }
     
     /**
-     * °´ÊäÈëµÄ×Ö·û¸öÊıÊä³ö°üº¬ºº×ÖµÄ×Ö·û´®£¬µ«ÊÇ²»ÄÜÊä³ö°ë¸öºº×Ö
+     * æŒ‰è¾“å…¥çš„å­—ç¬¦ä¸ªæ•°è¾“å‡ºåŒ…å«æ±‰å­—çš„å­—ç¬¦ä¸²ï¼Œä½†æ˜¯ä¸èƒ½è¾“å‡ºåŠä¸ªæ±‰å­—
      * @param buffer
      * @param n
      * @return
@@ -1068,7 +1068,7 @@ public class TestUseJunit {
     @Test
     public void testArrays() {
         int[][] ar = new int[3][] ;
-        //a[0] = {1,2,5};   //´íÎó£¬Ã»ÓĞÉùÃ÷ÀàĞÍ¾Í³õÊ¼»¯
+        //a[0] = {1,2,5};   //é”™è¯¯ï¼Œæ²¡æœ‰å£°æ˜ç±»å‹å°±åˆå§‹åŒ–
         ar[0] = new int[]{1,2};
         ar[1] = new int[]{2,2};
         ar[2] = new int[]{2,2,3,4};
@@ -1093,7 +1093,7 @@ public class TestUseJunit {
     @Test
     public void testSanMu() {
         int i = 8;
-        int is = i>7?1:i>2?2:3;//ÈıÄ¿ÔËËã·û´Ó×óÍùÓÒÅĞ¶Ï
+        int is = i>7?1:i>2?2:3;//ä¸‰ç›®è¿ç®—ç¬¦ä»å·¦å¾€å³åˆ¤æ–­
         System.out.println(is);
     }
     
@@ -1103,8 +1103,8 @@ public class TestUseJunit {
     }
     
     static String convert(int money) {
-        char[] data = {'Áã','Ò¼','·¡','Èş','ËÁ','Îé','Â½','Æâ','°Ç','¾Á'};
-        char[] units = {'Ôª','Ê°','°Û','Çª','Íò','Ê°','°Û','Çª','ÒÚ','Ê°'};
+        char[] data = {'é›¶','å£¹','è´°','å','è‚†','ä¼','é™†','æŸ’','æ‰’','ç–'};
+        char[] units = {'å…ƒ','æ‹¾','ä½°','ä»Ÿ','ä¸‡','æ‹¾','ä½°','ä»Ÿ','äº¿','æ‹¾'};
         StringBuffer sb = new StringBuffer();
         int unit = 0;
         while (money != 0) {
@@ -1113,8 +1113,8 @@ public class TestUseJunit {
             sb.insert(0, data[number]);
             money /= 10;
         }
-        return sb.toString().replaceAll("Áã[Ê°°ÛÇª]", "Áã").replaceAll("Áã+Íò", "Íò")
-                .replaceAll("Áã+Ôª", "Ôª").replaceAll("Áã+ÒÚ", "ÒÚ").replaceAll("Áã+", "Áã").replaceAll("ÒÚÍò", "ÒÚ");
+        return sb.toString().replaceAll("é›¶[æ‹¾ä½°ä»Ÿ]", "é›¶").replaceAll("é›¶+ä¸‡", "ä¸‡")
+                .replaceAll("é›¶+å…ƒ", "å…ƒ").replaceAll("é›¶+äº¿", "äº¿").replaceAll("é›¶+", "é›¶").replaceAll("äº¿ä¸‡", "äº¿");
     }
     
     @Test

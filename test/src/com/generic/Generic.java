@@ -4,12 +4,12 @@ import java.util.List;
 
 public class Generic {
 
-	//·½·¨Ò»  
+	//æ–¹æ³•ä¸€  
 	public static <T> void get(List<? extends T> list)  {  
 	    list.get(0);
 	}
 	
-	//·½·¨ËÄ  
+	//æ–¹æ³•å››  
 	public static void set(List<? super B> list, B b)  
 	{  
 	    list.add(b);  

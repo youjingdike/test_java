@@ -29,7 +29,7 @@ class TxtThread implements Runnable {
                         + ",end");
             }
         } 
-            //²»¼ÓËø
+            //ä¸åŠ é”
            /*while (num > 0) {
                try { 
                    Thread.sleep(1000); 

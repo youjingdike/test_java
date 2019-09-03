@@ -3,8 +3,8 @@ package com.testExtend;
 public class SeniorClass {
     public SeniorClass(){
         System.out.println(toString()); //may throw NullPointerException if overridden
-                                        //会调子类重写后的toString方法,尤其是在多次重写父类方法的时候要注意
-                                        //new哪个子类就调用哪个子类的toString方法
+                                        //浼氳皟瀛愮被閲嶅啓鍚庣殑toString鏂规硶,灏ゅ叾鏄湪澶氭閲嶅啓鐖剁被鏂规硶鐨勬椂鍊欒娉ㄦ剰
+                                        //new鍝釜瀛愮被灏辫皟鐢ㄥ摢涓瓙绫荤殑toString鏂规硶
     }
     public String toString(){
       return "IAmSeniorClass";

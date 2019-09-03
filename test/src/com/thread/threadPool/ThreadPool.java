@@ -8,14 +8,14 @@ import java.util.concurrent.TimeUnit;
  * Created by XUGY on 2017-07-22.
  */
 public class ThreadPool {
-    // ¶¨ÒåÏß³Ì³Ø¶ÔÏó£¨ÓÃÓÚÖ§¸¶ÒµÎñ£©
+    // å®šä¹‰çº¿ç¨‹æ± å¯¹è±¡ï¼ˆç”¨äºæ”¯ä»˜ä¸šåŠ¡ï¼‰
 //    private static ThreadPoolExecutor poolExecutor = null;
 	private volatile static ThreadPool instance;
 	private ThreadPool(){}
     /**
-     * @Description »ñÈ¡Ïß³Ì³Ø¶ÔÏó£¨Í¨¹ıË«ÖØ¼ì²éËøÊµÏÖ£©¡£
+     * @Description è·å–çº¿ç¨‹æ± å¯¹è±¡ï¼ˆé€šè¿‡åŒé‡æ£€æŸ¥é”å®ç°ï¼‰ã€‚
      * @param
-     * @return ThreadPoolExecutor Ïß³Ì³Ø¶ÔÏó
+     * @return ThreadPoolExecutor çº¿ç¨‹æ± å¯¹è±¡
      * @exception @author
      *                zhehong.qiu email:qiuzhehong@tzx.com.cn
      * @version 1.0 2017-06-19
@@ -26,8 +26,8 @@ public class ThreadPool {
             synchronized (ThreadPool.class) {
                 if(poolExecutor == null){
 					
-					 * ´´½¨ºËĞÄÏß³ÌÊıÎª20£¬×î´óÏß³ÌÊıÎª50(µ±ÈÎÎñ¶ÓÁĞÂúÊ±²Å»áÔö¼Ó´óÓÚºËĞÄÏß³ÌÊıÇÒĞ¡ÓÚ×î´óÏß³ÌÊıµÄÏß³Ì)µÄÏß³Ì³Ø£¬Ê¹ÓÃArrayBlockingQueue×èÈû¶ÓÁĞ£¬¶ÓÁĞ´óĞ¡Îª1000¡£
-					 * Ïß³ÌÊı³¬¹ı¶ÓÁĞ´óĞ¡Ê±µÄ²ßÂÔÎªÖØÊÔ£¨ÓÉµ÷ÓÃÏß³Ì³ØµÄÖ÷Ïß³Ì×Ô¼ºÀ´Ö´ĞĞÈÎÎñ£©¡£
+					 * åˆ›å»ºæ ¸å¿ƒçº¿ç¨‹æ•°ä¸º20ï¼Œæœ€å¤§çº¿ç¨‹æ•°ä¸º50(å½“ä»»åŠ¡é˜Ÿåˆ—æ»¡æ—¶æ‰ä¼šå¢åŠ å¤§äºæ ¸å¿ƒçº¿ç¨‹æ•°ä¸”å°äºæœ€å¤§çº¿ç¨‹æ•°çš„çº¿ç¨‹)çš„çº¿ç¨‹æ± ï¼Œä½¿ç”¨ArrayBlockingQueueé˜»å¡é˜Ÿåˆ—ï¼Œé˜Ÿåˆ—å¤§å°ä¸º1000ã€‚
+					 * çº¿ç¨‹æ•°è¶…è¿‡é˜Ÿåˆ—å¤§å°æ—¶çš„ç­–ç•¥ä¸ºé‡è¯•ï¼ˆç”±è°ƒç”¨çº¿ç¨‹æ± çš„ä¸»çº¿ç¨‹è‡ªå·±æ¥æ‰§è¡Œä»»åŠ¡ï¼‰ã€‚
 					 
                     poolExecutor = new ThreadPoolExecutor(20,50,3, TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(1000),
                             new ThreadPoolExecutor.CallerRunsPolicy());

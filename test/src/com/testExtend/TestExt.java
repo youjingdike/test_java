@@ -9,7 +9,7 @@ public class TestExt extends Mme{
 	
 	public TestExt() {
 		super();
-		System.out.println("我是构造器");
+		System.out.println("鎴戞槸鏋勯�犲櫒");
 	}
 	
 	public TestExt(String s) {
@@ -92,7 +92,7 @@ class Ttt implements Me{
 
 
     public void mmm() {
-        System.out.println("我是Ttt类！");
+        System.out.println("鎴戞槸Ttt绫伙紒");
     }
 
     public void nn() {
@@ -100,7 +100,7 @@ class Ttt implements Me{
     }
     
     public void say() {
-        System.out.println("我是Ttt的新方法");
+        System.out.println("鎴戞槸Ttt鐨勬柊鏂规硶");
     }
 
 
@@ -116,7 +116,7 @@ class Imme implements Me {
     }
 
     public void mmm() {
-       System.out.println("我是Imme类！");
+       System.out.println("鎴戞槸Imme绫伙紒");
         
     }
 
@@ -125,7 +125,7 @@ class Imme implements Me {
     }
     
     public void say() {
-        System.out.println("我是Imme的新方法");
+        System.out.println("鎴戞槸Imme鐨勬柊鏂规硶");
     }
 }
 
@@ -190,13 +190,13 @@ class Mmmme extends Mmme {
     }
     /*abstract void mm();*/
     void me() {
-        System.out.println("我是超类的方法！");
+        System.out.println("鎴戞槸瓒呯被鐨勬柟娉曪紒");
     }
 }
 
 class YouExd extends You{
     void me() {
-        System.out.println("我是子类的方法！");
+        System.out.println("鎴戞槸瀛愮被鐨勬柟娉曪紒");
     }
 
 }

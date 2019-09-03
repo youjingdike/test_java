@@ -18,7 +18,7 @@ public class TestEnum {
             System.out.println("no equal");
         }
         
-        //values()·½·¨apiÀïÃ»ÓĞ
+        //values()æ–¹æ³•apié‡Œæ²¡æœ‰
         Me[] values = Me.values();
         for (Me me : values) {
 			System.out.println(me.getName());
@@ -47,7 +47,7 @@ enum Me {
         this.name = name;
     }
 
-    //¿ÉÒÔ×Ô¶¨ÒåÒ»Ğ©·½·¨
+    //å¯ä»¥è‡ªå®šä¹‰ä¸€äº›æ–¹æ³•
     public String getName() {
         return name;
     }

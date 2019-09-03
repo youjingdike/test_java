@@ -11,17 +11,17 @@ public class TestSort {
         int[] arr = {234,245,77,3,543,67,78,95,378,678,205,753,457,2903,340} ;   
         int searchWord = 6780; 
         
-        System.out.printf("ÆÕÍ¨Ñ­»·²éÕÒ%dµÄ´ÎÊıÊÇ%d",searchWord,genetalLoop(arr,searchWord));
-        System.out.printf("¶ş·Ö·¨²éÕÒ%dµÄ´ÎÊıÊÇ%d",searchWord,binarySearch(arr,searchWord));
+        System.out.printf("æ™®é€šå¾ªç¯æŸ¥æ‰¾%dçš„æ¬¡æ•°æ˜¯%d",searchWord,genetalLoop(arr,searchWord));
+        System.out.printf("äºŒåˆ†æ³•æŸ¥æ‰¾%dçš„æ¬¡æ•°æ˜¯%d",searchWord,binarySearch(arr,searchWord));
     }
     
     /**
-     * ÆÕÍ¨Ñ­»·²éÕÒ
+     * æ™®é€šå¾ªç¯æŸ¥æ‰¾
      * @param arr
      * @param searchWord
      * @return
      */
-    //ÆÕÍ¨µÄÑ­»··¨£¬×îÉÙĞèÒª±È½ÏÒ»´Î£¬±ÈÈç²éÕÒ1£¬×î¶àĞèÒª±È½Ï15´Î£¬±ÈÈç8721
+    //æ™®é€šçš„å¾ªç¯æ³•ï¼Œæœ€å°‘éœ€è¦æ¯”è¾ƒä¸€æ¬¡ï¼Œæ¯”å¦‚æŸ¥æ‰¾1ï¼Œæœ€å¤šéœ€è¦æ¯”è¾ƒ15æ¬¡ï¼Œæ¯”å¦‚8721
     static int genetalLoop(int[] arr,int searchWord){
         int searchCount = 0;
         for(int i=0;i<arr.length;i++){ 
@@ -33,15 +33,15 @@ public class TestSort {
     }
     
     /**
-     * ¶ş·Ö·¨²éÕÒ
+     * äºŒåˆ†æ³•æŸ¥æ‰¾
      * @param arr
      * @param searchWord
      * @return
      */
     static int binarySearch(int[] arr,int searchWord){
-        Arrays.sort(arr);   //ÏÈ¶Ô´«½øÀ´µÄÊı×é½øĞĞÅÅĞò
+        Arrays.sort(arr);   //å…ˆå¯¹ä¼ è¿›æ¥çš„æ•°ç»„è¿›è¡Œæ’åº
         System.out.println("\n"+Arrays.toString(arr));
-        //¶ş·Ö·¨²éÕÒ 
+        //äºŒåˆ†æ³•æŸ¥æ‰¾ 
         int iIndex=0;  
         int iStart=0;  
         int iEnd=arr.length-1; 
@@ -70,7 +70,7 @@ public class TestSort {
     }
     
     /**
-     * Ã°ÅİÅÅĞò
+     * å†’æ³¡æ’åº
      * @param values
      */
     static void sort(int[] values) {
