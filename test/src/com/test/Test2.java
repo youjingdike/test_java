@@ -20,6 +20,8 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 
+import static java.util.concurrent.TimeUnit.SECONDS;
+
 public class Test2 {
 	public static void main(String[] args) {
 		/*FileOutputStream fos = null;
@@ -77,6 +79,11 @@ public class Test2 {
 				break;
 		}
 		System.out.println(addtime);
+		try {
+			SECONDS.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 	public static void testJson() {
 		Type type = new TypeToken<ArrayList<JsonObject>>()

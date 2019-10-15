@@ -1,6 +1,7 @@
 package com.thread.threadPool;
 
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ExecutorCompletionService;
 import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -59,6 +60,9 @@ public class Test implements Runnable {
 		/*for (int i=0;i<50;i++) {
 			new Thread(test).start();
 		}*/
+		ThreadPoolExecutor executor = ThreadPool.getThreadPool();
+		ExecutorCompletionService<String> executorCompletionService = new ExecutorCompletionService<>(executor);
+
 	}
 	
 	@Override
