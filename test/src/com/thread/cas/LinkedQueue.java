@@ -7,7 +7,7 @@ public class LinkedQueue<E> {
         final E item;
         final AtomicReference<Node<E>> next;
 
-        private Node(E item, Node<E> next) {
+        public Node(E item, Node<E> next) {
             this.item = item;
             this.next = new AtomicReference<Node<E>>(next);
         }
