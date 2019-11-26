@@ -1,5 +1,11 @@
 package com.thread.threadPool;
 
+import com.google.gson.internal.bind.util.ISO8601Utils;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ExecutorCompletionService;
 import java.util.concurrent.RejectedExecutionException;
@@ -55,19 +61,57 @@ public class Test implements Runnable {
 	}
 	
 	public static void main(String[] args) {
-		Test test = new Test();
-		test.tst2();
-		/*for (int i=0;i<50;i++) {
-			new Thread(test).start();
-		}*/
-		ThreadPoolExecutor executor = ThreadPool.getThreadPool();
-		ExecutorCompletionService<String> executorCompletionService = new ExecutorCompletionService<>(executor);
-
+//		Test test = new Test();
+//		test.tst2();
+//		/*for (int i=0;i<50;i++) {
+//			new Thread(test).start();
+//		}*/
+//		ThreadPoolExecutor executor = ThreadPool.getThreadPool();
+//		ExecutorCompletionService<String> executorCompletionService = new ExecutorCompletionService<>(executor);
+		Animal animal = new Test.Animal();
+		animal.setName("test1");
+		Animal animal1 = new Test.Animal();
+		animal1.setName("test3");
+		List<Animal> animalList = new ArrayList<>();
+		animalList.add(animal1);
+		animalList.add(animal);
+		animalList.forEach(System.out::println);
+		SortedSet<Animal> animalSortedSet = new TreeSet<Animal>((o1,o2)->{
+			int i = 0;
+			int comp = o1.getName().compareTo(o2.getName());
+			if (comp > 0) {
+				i = -1;
+			} else if (comp < 0) {
+				i = 1;
+			}
+			return i;
+		});
+		animalSortedSet.addAll(animalList);
+		animal1.setName("sort");
+		animalSortedSet.forEach(System.out::println);
 	}
 	
 	@Override
 	public void run() {
 		tst();
 		tst1();
+
+	}
+
+	private static class Animal{
+		private String name;
+
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		@Override
+		public String toString() {
+			return "name:"+name;
+		}
 	}
 }
