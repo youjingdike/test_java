@@ -5,6 +5,9 @@ import jdk.nashorn.internal.ir.annotations.Immutable;
 import java.math.BigInteger;
 import java.util.Arrays;
 
+/**
+ * 不可变容器类
+ */
 @Immutable
 public class OneValueCache {
     private final BigInteger lastNumber;
