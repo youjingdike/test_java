@@ -13,7 +13,7 @@ public class OneValueCache {
 
     public OneValueCache(BigInteger i, BigInteger[] factors) {
         this.lastNumber = i;
-        this.lastFactors = Arrays.copyOf(factors,factors.length);
+        this.lastFactors = Arrays.copyOf(factors,factors.length);//如果这里不调用copyof,那么OneValueCache就不是不可变的
     }
 
     public BigInteger[] getFactors(BigInteger integer) {
