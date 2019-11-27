@@ -20,7 +20,7 @@ public class OneValueCache {
         if (lastNumber ==  null || !lastNumber.equals(integer)) {
             return null;
         } else {
-            return Arrays.copyOf(lastFactors, lastFactors.length);
+            return Arrays.copyOf(lastFactors, lastFactors.length);//如果这里不调用copyof,那么OneValueCache就不是不可变的
         }
 
     }
