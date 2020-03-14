@@ -49,9 +49,9 @@ public class Test2 {
 	        }
         }*/
 //		testJson();
-		int i = 5;
+		/*int i = 5;
 		int addtime = 0;
-		/**（通知频率为15/15/30/180/300/300/480/600/600，单位：秒） 共计42分钟*/
+		*//**（通知频率为15/15/30/180/300/300/480/600/600，单位：秒） 共计42分钟*//*
 		switch (i){
 			
 			case 1:
@@ -83,8 +83,29 @@ public class Test2 {
 			SECONDS.sleep(1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
+		}*/
+		System.out.println(testReturn());
+		System.out.println(testReturn1());
+	}
+
+	private static int testReturn() {
+		try {
+			return 1;
+		} finally {
+			return 2;
 		}
 	}
+
+	private static int testReturn1() {
+		int i = 0;
+		try {
+			return i;
+		} finally {
+			i = 2;
+			return i;
+		}
+	}
+
 	public static void testJson() {
 		Type type = new TypeToken<ArrayList<JsonObject>>()
         {}.getType();
