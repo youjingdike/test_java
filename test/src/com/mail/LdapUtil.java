@@ -51,7 +51,7 @@ public class LdapUtil {
 		return util.authenticate(userName, password);
 	}
 	public static void main(String [] args){
-		boolean isAuth=authenticate("xingqian3@cnpc.com.cn", "1985221");	
+		boolean isAuth=authenticate("xingqian3@QQ.com.cn", "1111");	
 		System.out.println(isAuth);
 	}
 }
