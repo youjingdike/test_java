@@ -22,17 +22,17 @@ import com.util.PublicUtil;
   
 public class Mail {   
   
-    private MimeMessage mimeMsg; //MIMEÓÊ¼ş¶ÔÏó   
-    private Session session; //ÓÊ¼ş»á»°¶ÔÏó   
-    private Properties props; //ÏµÍ³ÊôĞÔ   
-    //smtpÈÏÖ¤ÓÃ»§ÃûºÍÃÜÂë   
+    private MimeMessage mimeMsg; //MIMEé‚®ä»¶å¯¹è±¡   
+    private Session session; //é‚®ä»¶ä¼šè¯å¯¹è±¡   
+    private Properties props; //ç³»ç»Ÿå±æ€§   
+    //smtpè®¤è¯ç”¨æˆ·åå’Œå¯†ç    
     private String username;   
     private String password;   
-    private Multipart mp; //Multipart¶ÔÏó,ÓÊ¼şÄÚÈİ,±êÌâ,¸½¼şµÈÄÚÈİ¾ùÌí¼Óµ½ÆäÖĞºóÔÙÉú³ÉMimeMessage¶ÔÏó   
+    private Multipart mp; //Multipartå¯¹è±¡,é‚®ä»¶å†…å®¹,æ ‡é¢˜,é™„ä»¶ç­‰å†…å®¹å‡æ·»åŠ åˆ°å…¶ä¸­åå†ç”ŸæˆMimeMessageå¯¹è±¡   
        
     /** 
      * Constructor 
-     * @param smtp ÓÊ¼ş·¢ËÍ·şÎñÆ÷ 
+     * @param smtp é‚®ä»¶å‘é€æœåŠ¡å™¨ 
      */  
     public Mail(boolean need){   
       setSmtpHost(); 
@@ -41,7 +41,7 @@ public class Mail {
     }   
     /** 
      * Constructor 
-     * @param smtp ÓÊ¼ş·¢ËÍ·şÎñÆ÷ 
+     * @param smtp é‚®ä»¶å‘é€æœåŠ¡å™¨ 
      */  
     public Mail(String smtp,boolean need){   
         setSmtpHost(smtp);   
@@ -50,59 +50,59 @@ public class Mail {
     }   
   
     /** 
-     * ÉèÖÃÓÊ¼ş·¢ËÍ·şÎñÆ÷ 
+     * è®¾ç½®é‚®ä»¶å‘é€æœåŠ¡å™¨ 
      * @param hostName String  
      */  
     private void setSmtpHost(String hostName) {   
-        System.out.println("ÉèÖÃÏµÍ³ÊôĞÔ£ºmail.smtp.host = "+hostName);   
+        System.out.println("è®¾ç½®ç³»ç»Ÿå±æ€§ï¼šmail.smtp.host = "+hostName);   
         if(props == null)  
-            props = System.getProperties(); //»ñµÃÏµÍ³ÊôĞÔ¶ÔÏó    
-        props.put("mail.smtp.host",hostName); //ÉèÖÃSMTPÖ÷»ú   
+            props = System.getProperties(); //è·å¾—ç³»ç»Ÿå±æ€§å¯¹è±¡    
+        props.put("mail.smtp.host",hostName); //è®¾ç½®SMTPä¸»æœº   
     }   
     /** 
-     * ÉèÖÃÓÊ¼ş·¢ËÍ·şÎñÆ÷ 
+     * è®¾ç½®é‚®ä»¶å‘é€æœåŠ¡å™¨ 
      * @param hostName String  
      */  
     private void setSmtpHost() {   
       if(props == null)  
         props = new PublicUtil().loadProperties("mail.properties");
-      System.out.println("¶ÁÈ¡ÏµÍ³ÊôĞÔ£ºmail.smtp.host = "+props.getProperty("mail.smtp.host"));   
+      System.out.println("è¯»å–ç³»ç»Ÿå±æ€§ï¼šmail.smtp.host = "+props.getProperty("mail.smtp.host"));   
     }   
   
   
     /** 
-     * ´´½¨MIMEÓÊ¼ş¶ÔÏó   
+     * åˆ›å»ºMIMEé‚®ä»¶å¯¹è±¡   
      * @return 
      */  
     private boolean createMimeMessage()   
     {   
         try {   
-            System.out.println("×¼±¸»ñÈ¡ÓÊ¼ş»á»°¶ÔÏó£¡");   
-            session = Session.getInstance(props,null); //»ñµÃÓÊ¼ş»á»°¶ÔÏó   
+            System.out.println("å‡†å¤‡è·å–é‚®ä»¶ä¼šè¯å¯¹è±¡ï¼");   
+            session = Session.getInstance(props,null); //è·å¾—é‚®ä»¶ä¼šè¯å¯¹è±¡   
         }   
         catch(Exception e){   
-            System.err.println("»ñÈ¡ÓÊ¼ş»á»°¶ÔÏóÊ±·¢Éú´íÎó£¡"+e);   
+            System.err.println("è·å–é‚®ä»¶ä¼šè¯å¯¹è±¡æ—¶å‘ç”Ÿé”™è¯¯ï¼"+e);   
             return false;   
         }   
       
-        System.out.println("×¼±¸´´½¨MIMEÓÊ¼ş¶ÔÏó£¡");   
+        System.out.println("å‡†å¤‡åˆ›å»ºMIMEé‚®ä»¶å¯¹è±¡ï¼");   
         try {   
-            mimeMsg = new MimeMessage(session); //´´½¨MIMEÓÊ¼ş¶ÔÏó   
+            mimeMsg = new MimeMessage(session); //åˆ›å»ºMIMEé‚®ä»¶å¯¹è±¡   
             mp = new MimeMultipart();   
           
             return true;   
         } catch(Exception e){   
-            System.err.println("´´½¨MIMEÓÊ¼ş¶ÔÏóÊ§°Ü£¡"+e);   
+            System.err.println("åˆ›å»ºMIMEé‚®ä»¶å¯¹è±¡å¤±è´¥ï¼"+e);   
             return false;   
         }   
     }     
       
     /** 
-     * ÉèÖÃSMTPÊÇ·ñĞèÒªÑéÖ¤ 
+     * è®¾ç½®SMTPæ˜¯å¦éœ€è¦éªŒè¯ 
      * @param need 
      */  
     private void setNeedAuth(boolean need) {   
-        System.out.println("ÉèÖÃsmtpÉí·İÈÏÖ¤£ºmail.smtp.auth = "+need);   
+        System.out.println("è®¾ç½®smtpèº«ä»½è®¤è¯ï¼šmail.smtp.auth = "+need);   
         if(props == null) props = System.getProperties();   
         if(need){   
             props.put("mail.smtp.auth","true");   
@@ -112,7 +112,7 @@ public class Mail {
     }   
   
     /** 
-     * ÉèÖÃÓÃ»§ÃûºÍÃÜÂë 
+     * è®¾ç½®ç”¨æˆ·åå’Œå¯†ç  
      * @param name 
      * @param pass 
      */  
@@ -122,24 +122,24 @@ public class Mail {
     }   
   
     /** 
-     * ÉèÖÃÓÊ¼şÖ÷Ìâ 
+     * è®¾ç½®é‚®ä»¶ä¸»é¢˜ 
      * @param mailSubject 
      * @return 
      */  
     private boolean setSubject(String mailSubject) {   
-        System.out.println("ÉèÖÃÓÊ¼şÖ÷Ìâ£¡");   
+        System.out.println("è®¾ç½®é‚®ä»¶ä¸»é¢˜ï¼");   
         try{   
             mimeMsg.setSubject(mailSubject);   
             return true;   
         }   
         catch(Exception e) {   
-            System.err.println("ÉèÖÃÓÊ¼şÖ÷Ìâ·¢Éú´íÎó£¡");   
+            System.err.println("è®¾ç½®é‚®ä»¶ä¸»é¢˜å‘ç”Ÿé”™è¯¯ï¼");   
             return false;   
         }   
     }  
       
     /**  
-     * ÉèÖÃÓÊ¼şÕıÎÄ 
+     * è®¾ç½®é‚®ä»¶æ­£æ–‡ 
      * @param mailBody String  
      */   
     private boolean setBody(String mailBody) {   
@@ -150,12 +150,12 @@ public class Mail {
           
             return true;   
         } catch(Exception e){   
-        System.err.println("ÉèÖÃÓÊ¼şÕıÎÄÊ±·¢Éú´íÎó£¡"+e);   
+        System.err.println("è®¾ç½®é‚®ä»¶æ­£æ–‡æ—¶å‘ç”Ÿé”™è¯¯ï¼"+e);   
         return false;   
         }   
     }   
     /**  
-     * Ìí¼Ó¸½¼ş 
+     * æ·»åŠ é™„ä»¶ 
      * @param filename String  
      */   
     private boolean addFileAffix(String[] filename) {   
@@ -164,7 +164,7 @@ public class Mail {
           BodyPart bp = null;   
           FileDataSource fileds = null;   
           for (String string : filename) {
-            System.out.println("Ôö¼ÓÓÊ¼ş¸½¼ş£º"+string);   
+            System.out.println("å¢åŠ é‚®ä»¶é™„ä»¶ï¼š"+string);   
             bp = new MimeBodyPart();   
             fileds = new FileDataSource(string);   
             bp.setDataHandler(new DataHandler(fileds));   
@@ -174,19 +174,19 @@ public class Mail {
             
           return true;   
         } catch(Exception e){   
-          System.err.println("Ôö¼ÓÓÊ¼ş¸½¼ş£º"+filename+"·¢Éú´íÎó£¡"+e);   
+          System.err.println("å¢åŠ é‚®ä»¶é™„ä»¶ï¼š"+filename+"å‘ç”Ÿé”™è¯¯ï¼"+e);   
           return false;   
         }   
     }   
       
     /**  
-     * ÉèÖÃ·¢ĞÅÈË 
+     * è®¾ç½®å‘ä¿¡äºº 
      * @param from String  
      */   
     private boolean setFrom(String from) {   
-        System.out.println("ÉèÖÃ·¢ĞÅÈË£¡");   
+        System.out.println("è®¾ç½®å‘ä¿¡äººï¼");   
         try{   
-            mimeMsg.setFrom(new InternetAddress(from)); //ÉèÖÃ·¢ĞÅÈË   
+            mimeMsg.setFrom(new InternetAddress(from)); //è®¾ç½®å‘ä¿¡äºº   
             return true;   
         } catch(Exception e) {   
             return false;   
@@ -194,7 +194,7 @@ public class Mail {
     }   
     
     /**  
-     * ÉèÖÃÊÕĞÅÈË
+     * è®¾ç½®æ”¶ä¿¡äºº
      * @param to
      * @return
      */ 
@@ -213,7 +213,7 @@ public class Mail {
     }   
       
     /**
-     * ÉèÖÃ³­ËÍÈË
+     * è®¾ç½®æŠ„é€äºº
      * @param copyto
      * @return
      */  
@@ -233,14 +233,14 @@ public class Mail {
     }   
       
     /**  
-     * ·¢ËÍÓÊ¼ş 
+     * å‘é€é‚®ä»¶ 
      */   
     private boolean sendOut()   
     {   
         try{   
             mimeMsg.setContent(mp);   
             mimeMsg.saveChanges();   
-            System.out.println("ÕıÔÚ·¢ËÍÓÊ¼ş....");   
+            System.out.println("æ­£åœ¨å‘é€é‚®ä»¶....");   
             if(props.get("mail.smtp.auth").equals("true")){
               Transport transport = session.getTransport("smtp");   
               transport.connect((String)props.get("mail.smtp.host"),username,password);   
@@ -250,16 +250,16 @@ public class Mail {
             } else {
               Transport.send(mimeMsg);   
             }
-            System.out.println("·¢ËÍÓÊ¼ş³É¹¦£¡");   
+            System.out.println("å‘é€é‚®ä»¶æˆåŠŸï¼");   
             return true;   
         } catch(Exception e) {   
-            System.err.println("ÓÊ¼ş·¢ËÍÊ§°Ü£¡"+e);   
+            System.err.println("é‚®ä»¶å‘é€å¤±è´¥ï¼"+e);   
             return false;   
         }   
     }   
   
     /** 
-     * µ÷ÓÃsendOut·½·¨Íê³ÉÓÊ¼ş·¢ËÍ(ÎŞ³­ËÍºÍ¸½¼ş) 
+     * è°ƒç”¨sendOutæ–¹æ³•å®Œæˆé‚®ä»¶å‘é€(æ— æŠ„é€å’Œé™„ä»¶) 
      * @param smtp 
      * @param from 
      * @param to 
@@ -283,7 +283,7 @@ public class Mail {
     }  
     
     /** 
-     * µ÷ÓÃsendOut·½·¨Íê³ÉÓÊ¼ş·¢ËÍ(ÎŞ³­ËÍºÍ¸½¼ş)
+     * è°ƒç”¨sendOutæ–¹æ³•å®Œæˆé‚®ä»¶å‘é€(æ— æŠ„é€å’Œé™„ä»¶)
      * @param smtp 
      * @param from 
      * @param to 
@@ -307,7 +307,7 @@ public class Mail {
     }  
       
     /** 
-     * µ÷ÓÃsendOut·½·¨Íê³ÉÓÊ¼ş·¢ËÍ,´ø³­ËÍ 
+     * è°ƒç”¨sendOutæ–¹æ³•å®Œæˆé‚®ä»¶å‘é€,å¸¦æŠ„é€ 
      * @param smtp 
      * @param from 
      * @param to 
@@ -333,7 +333,7 @@ public class Mail {
     }  
     
     /** 
-     * µ÷ÓÃsendOut·½·¨Íê³ÉÓÊ¼ş·¢ËÍ,´ø³­ËÍ 
+     * è°ƒç”¨sendOutæ–¹æ³•å®Œæˆé‚®ä»¶å‘é€,å¸¦æŠ„é€ 
      * @param smtp 
      * @param from 
      * @param to 
@@ -359,7 +359,7 @@ public class Mail {
     }  
       
     /** 
-     * µ÷ÓÃsendOut·½·¨Íê³ÉÓÊ¼ş·¢ËÍ,´ø¸½¼ş 
+     * è°ƒç”¨sendOutæ–¹æ³•å®Œæˆé‚®ä»¶å‘é€,å¸¦é™„ä»¶ 
      * @param smtp 
      * @param from 
      * @param to 
@@ -367,7 +367,7 @@ public class Mail {
      * @param content 
      * @param username 
      * @param password 
-     * @param filename ¸½¼şÂ·¾¶ 
+     * @param filename é™„ä»¶è·¯å¾„ 
      * @return 
      */  
     public static boolean send(String smtp,String from,String[] to,String subject,String content,String username,String password,String[] filename) {  
@@ -385,7 +385,7 @@ public class Mail {
     }  
       
     /** 
-     * µ÷ÓÃsendOut·½·¨Íê³ÉÓÊ¼ş·¢ËÍ,´ø¸½¼şºÍ³­ËÍ 
+     * è°ƒç”¨sendOutæ–¹æ³•å®Œæˆé‚®ä»¶å‘é€,å¸¦é™„ä»¶å’ŒæŠ„é€ 
      * @param smtp 
      * @param from 
      * @param to 
@@ -422,28 +422,29 @@ public class Mail {
     
     
     public static void main(String[] args){  
-      String smtp = "mail.163.com.cn";  
-      String from = "xXXXX3@163.com.cn";
-      String username="XXXXX@163.com.cn";  
-      String password="XXXX";  
+      String smtp = "xxxx.com.cn";
+      String from = "xxx@xxx.com.cn";
+      String username="xxxx@xxx.com.cn";
+      String password="xxxx";
       
       
-      String[] to = {"xxxxxx@163.com"};
+      String[] to = {"xxxx@163.com"};
       
-      String[] copyto = {" cccc@@@.com"};
+      String[] copyto = {"xxx@xxxx.com.cn"};
       
-      String subject = " subject"; 
-      String contentSend = "£¬test"";
+      String subject = "vvvvv";
+      String contentSend = "ï¼Œæ‚¨å¥½ï¼š<br/>"+
+      "vvvvvvv";
       
-      String content = " sdfsdfsdf"+contentSend;
+      String content = "vvvv"+contentSend;
       
-      String[] filename = {"D:\\²âÊÔ.txt","D:\\²âÊÔ.txt"};//¸½¼şÂ·¾¶£¬Èç£ºF:\\±Ê¼Ç<a>\\struts2</a>Óëmvc.txt
+      String[] filename = {"D:\\æµ‹è¯•.txt","D:\\æµ‹è¯•.txt"};//é™„ä»¶è·¯å¾„ï¼Œå¦‚ï¼šF:\\ç¬”è®°<a>\\struts2</a>ä¸mvc.txt
 //      Mail.sendAndCc(smtp, from, to, copyto, subject, content, username, password, filename);  
       //Mail.send(smtp, from, to, subject, content, username, password);  
       //Mail.sendMail(to, subject, content);
       //sendAndCc(smtp, from, to, copyto, subject, content, username, password);
       //sendAndCc(from, to, copyto, subject, content, username, password);
-      //sendMail("XXXXXX@163.com", subject, content);
+      //sendMail("xxxxx@163.com", subject, content);
       sendAndCc(smtp, from, to, copyto, subject, content, username, password, filename);
   }  
 }   
