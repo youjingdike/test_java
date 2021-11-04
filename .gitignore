@@ -1,2 +1,9 @@
-/.idea/encodings.xml
-/.idea/workspace.xml
+.idea
+target
+.project
+.classpath
+*.iml
+.settings
+logs
+*.log
+dist
