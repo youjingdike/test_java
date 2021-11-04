@@ -1,8 +1,0 @@
-eclipse.preferences.version=1
-encoding//config/db.properties=GBK
-encoding//config/db1.properties=GBK
-encoding//config/errorcode.properties=UTF-8
-encoding//src/com/junit/TestUseJunit.java=gbk
-encoding//src/com/sort/Sort.java=UTF-8
-encoding//src/com/thread/threadPool/TaskThreadPoolExecutor.java=UTF-8
-encoding//src/com/thread/threadPool/TestThreadPool.java=UTF-8
