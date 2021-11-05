@@ -11,7 +11,7 @@ public class Test02 {
 		  
         List<Box> inventory = Arrays.asList(new Box(80, "green"), new Box(155, "green"), new Box(120, "red"));  
   
-        //filterÖĞµÄ²ÎÊı¸üºÃÏñÊÇ¶¨ÒåÁËÒ»×é¹æÔò  °´ÕÕÕâ¸ö¹æÔò  È»ºópredicateµ÷ÓÃtestº¯Êı  
+        //filterä¸­çš„å‚æ•°æ›´å¥½åƒæ˜¯å®šä¹‰äº†ä¸€ç»„è§„åˆ™  æŒ‰ç…§è¿™ä¸ªè§„åˆ™  ç„¶åpredicateè°ƒç”¨testå‡½æ•°  
         List<Box> greenApples = filter(inventory, Test02::isGreenApple);  
         System.out.println(greenApples);  
   

@@ -108,17 +108,17 @@ public class StreamTester {
 	}
 	
 	private static void testInit() {
-		//³õÊ¼»¯Ò»¸öÁ÷£º
+		//åˆå§‹åŒ–ä¸€ä¸ªæµï¼š
 	    Stream<String> stream = Stream.of("a", "b", "c");
 	    printStream(stream);
 	    
-	    //Êı×é×ª»»ÎªÒ»¸öÁ÷£º
+	    //æ•°ç»„è½¬æ¢ä¸ºä¸€ä¸ªæµï¼š
 	    String [] strArray = new String[] {"a", "b", "c"};
 //	    stream = Stream.of(strArray);
 	    stream = Arrays.stream(strArray);
 	    printStream(stream);
 	    
-	    //¼¯ºÏ¶ÔÏó×ª»»ÎªÒ»¸öÁ÷£¨Collections£©£º
+	    //é›†åˆå¯¹è±¡è½¬æ¢ä¸ºä¸€ä¸ªæµï¼ˆCollectionsï¼‰ï¼š
 	    List<String> list = Arrays.asList(strArray);
 	    stream = list.stream();
 	    printStream(stream);
@@ -126,14 +126,14 @@ public class StreamTester {
 	}
 	
 	private static void testMap() {
-		//1.1¡¢±éÀú×ª»»Îª´óĞ´:
+		//1.1ã€éå†è½¬æ¢ä¸ºå¤§å†™:
 		List<String> wordList = Arrays.asList("Hello","World");
 		List<String> output = wordList.stream().
 				map(String::toUpperCase).
 				collect(Collectors.toList());
 		printCollection(output,"output");
 		
-		//1.2¡¢Æ½·½Êı£º
+		//1.2ã€å¹³æ–¹æ•°ï¼š
 		List<Integer> nums = Arrays.asList(1, 2, 3, 4);
 		List<Integer> squareNums = nums.stream().
 				map(n -> n * n).
@@ -142,7 +142,7 @@ public class StreamTester {
 	}
 	
 	private static void testFilter() {
-		//2.1¡¢µÃµ½ÆäÖĞ²»Îª¿ÕµÄString
+		//2.1ã€å¾—åˆ°å…¶ä¸­ä¸ä¸ºç©ºçš„String
 		List<String> filterLists = new ArrayList<>();
 		filterLists.add("");
 		filterLists.add("a");
@@ -152,9 +152,9 @@ public class StreamTester {
 		        .collect(Collectors.toList());
 		printCollection(afterFilterLists,"afterFilterLists");
 		
-		//limit ·µ»Ø Stream µÄÇ°Ãæ n ¸öÔªËØ£»skip ÔòÊÇÈÓµôÇ° n ¸öÔªËØ:
-		//×¢ÒâskipÓëlimitÊÇÓĞË³Ğò¹ØÏµµÄ£¬
-		//±ÈÈçÊ¹ÓÃskip(2)»áÌø¹ı¼¯ºÏµÄÇ°Á½¸ö£¬·µ»ØµÄÎªc¡¢d¡¢e¡¢f,È»ºóµ÷ÓÃlimit(3)»á·µ»ØÇ°3¸ö£¬ËùÒÔ×îºó·µ»ØµÄc,d,e
+		//limit è¿”å› Stream çš„å‰é¢ n ä¸ªå…ƒç´ ï¼›skip åˆ™æ˜¯æ‰”æ‰å‰ n ä¸ªå…ƒç´ :
+		//æ³¨æ„skipä¸limitæ˜¯æœ‰é¡ºåºå…³ç³»çš„ï¼Œ
+		//æ¯”å¦‚ä½¿ç”¨skip(2)ä¼šè·³è¿‡é›†åˆçš„å‰ä¸¤ä¸ªï¼Œè¿”å›çš„ä¸ºcã€dã€eã€f,ç„¶åè°ƒç”¨limit(3)ä¼šè¿”å›å‰3ä¸ªï¼Œæ‰€ä»¥æœ€åè¿”å›çš„c,d,e
 		List<String> forEachLists = new ArrayList<>();
 		forEachLists.add("a");
 		forEachLists.add("b");
@@ -167,8 +167,8 @@ public class StreamTester {
 		printCollection(limitLists,"limitLists");
 		printCollection(limitLists1,"limitLists1");
 		
-		//sort¿ÉÒÔ¶Ô¼¯ºÏÖĞµÄËùÓĞÔªËØ½øĞĞÅÅĞò¡£max£¬min¿ÉÒÔÑ°ÕÒ³öÁ÷ÖĞ×î´ó»òÕß×îĞ¡µÄÔªËØ£¬¶ødistinct¿ÉÒÔÑ°ÕÒ³ö²»ÖØ¸´µÄÔªËØ£º
-		//5.1¡¢¶ÔÒ»¸ö¼¯ºÏ½øĞĞÅÅĞò£º
+		//sortå¯ä»¥å¯¹é›†åˆä¸­çš„æ‰€æœ‰å…ƒç´ è¿›è¡Œæ’åºã€‚maxï¼Œminå¯ä»¥å¯»æ‰¾å‡ºæµä¸­æœ€å¤§æˆ–è€…æœ€å°çš„å…ƒç´ ï¼Œè€Œdistinctå¯ä»¥å¯»æ‰¾å‡ºä¸é‡å¤çš„å…ƒç´ ï¼š
+		//5.1ã€å¯¹ä¸€ä¸ªé›†åˆè¿›è¡Œæ’åºï¼š
 		List<Integer> sortLists = new ArrayList<>();
 		sortLists.add(1);
 		sortLists.add(4);
@@ -178,7 +178,7 @@ public class StreamTester {
 		List<Integer> afterSortLists = sortLists.stream().sorted((In1,In2)->
 		       In1-In2).collect(Collectors.toList());
 		printCollection(afterSortLists,"afterSortLists");
-		//5.2¡¢µÃµ½ÆäÖĞ³¤¶È×î´óµÄÖµ£º
+		//5.2ã€å¾—åˆ°å…¶ä¸­é•¿åº¦æœ€å¤§çš„å€¼ï¼š
 		List<String> maxLists = new ArrayList<>();
 		maxLists.add("a");
 		maxLists.add("b");
@@ -188,8 +188,8 @@ public class StreamTester {
 		maxLists.add("f");
 		maxLists.add("hahaha");
 		int maxLength = maxLists.stream().mapToInt(s->s.length()).max().getAsInt();
-		System.out.println("×Ö·û´®³¤¶È×î³¤µÄ³¤¶ÈÎª"+maxLength);
-		//5.3¡¢¶ÔÒ»¸ö¼¯ºÏ½øĞĞ²éÖØ£ºÆäÖĞµÄdistinct()·½·¨ÄÜÕÒ³östreamÖĞÔªËØequal()£¬¼´ÏàÍ¬µÄÔªËØ£¬²¢½«ÏàÍ¬µÄÈ¥³ı£¬ÉÏÊö·µ»Ø¼´Îªa,c,d¡£
+		System.out.println("å­—ç¬¦ä¸²é•¿åº¦æœ€é•¿çš„é•¿åº¦ä¸º"+maxLength);
+		//5.3ã€å¯¹ä¸€ä¸ªé›†åˆè¿›è¡ŒæŸ¥é‡ï¼šå…¶ä¸­çš„distinct()æ–¹æ³•èƒ½æ‰¾å‡ºstreamä¸­å…ƒç´ equal()ï¼Œå³ç›¸åŒçš„å…ƒç´ ï¼Œå¹¶å°†ç›¸åŒçš„å»é™¤ï¼Œä¸Šè¿°è¿”å›å³ä¸ºa,c,dã€‚
 		List<String> distinctList = new ArrayList<>();
 		distinctList.add("a");
 		distinctList.add("a");
@@ -199,12 +199,12 @@ public class StreamTester {
 		printCollection(afterDistinctList,"afterDistinctList");
 		
 		/*
-		 * ÓĞµÄÊ±ºò£¬ÎÒÃÇÖ»ĞèÒªÅĞ¶Ï¼¯ºÏÖĞÊÇ·ñÈ«²¿Âú×ãÌõ¼ş£¬»òÕßÅĞ¶Ï¼¯ºÏÖĞÊÇ·ñÓĞÂú×ãÌõ¼şµÄÔªËØ£¬ÕâÊ±ºò¾Í¿ÉÒÔÊ¹ÓÃmatch·½·¨£º
-		 * allMatch£ºStream ÖĞÈ«²¿ÔªËØ·ûºÏ´«ÈëµÄ predicate£¬·µ»Ø true
-		 * anyMatch£ºStream ÖĞÖ»ÒªÓĞÒ»¸öÔªËØ·ûºÏ´«ÈëµÄ predicate£¬·µ»Ø true
-		 * noneMatch£ºStream ÖĞÃ»ÓĞÒ»¸öÔªËØ·ûºÏ´«ÈëµÄ predicate£¬·µ»Ø true
+		 * æœ‰çš„æ—¶å€™ï¼Œæˆ‘ä»¬åªéœ€è¦åˆ¤æ–­é›†åˆä¸­æ˜¯å¦å…¨éƒ¨æ»¡è¶³æ¡ä»¶ï¼Œæˆ–è€…åˆ¤æ–­é›†åˆä¸­æ˜¯å¦æœ‰æ»¡è¶³æ¡ä»¶çš„å…ƒç´ ï¼Œè¿™æ—¶å€™å°±å¯ä»¥ä½¿ç”¨matchæ–¹æ³•ï¼š
+		 * allMatchï¼šStream ä¸­å…¨éƒ¨å…ƒç´ ç¬¦åˆä¼ å…¥çš„ predicateï¼Œè¿”å› true
+		 * anyMatchï¼šStream ä¸­åªè¦æœ‰ä¸€ä¸ªå…ƒç´ ç¬¦åˆä¼ å…¥çš„ predicateï¼Œè¿”å› true
+		 * noneMatchï¼šStream ä¸­æ²¡æœ‰ä¸€ä¸ªå…ƒç´ ç¬¦åˆä¼ å…¥çš„ predicateï¼Œè¿”å› true
 		 */
-		//6.1¡¢ÅĞ¶Ï¼¯ºÏÖĞÓĞÃ»ÓĞÎª¡®c¡¯µÄÔªËØ£º
+		//6.1ã€åˆ¤æ–­é›†åˆä¸­æœ‰æ²¡æœ‰ä¸ºâ€˜câ€™çš„å…ƒç´ ï¼š
 		List<String> matchList = new ArrayList<>();
 		matchList.add("a");
 		matchList.add("a");
@@ -213,7 +213,7 @@ public class StreamTester {
 		boolean isExits = matchList.stream().anyMatch(s -> s.equals("cd"));
 		System.out.println(isExits);
 		
-		//6.2¡¢ÅĞ¶Ï¼¯ºÏÖĞÊÇ·ñÈ«²»Îª¿Õ£º
+		//6.2ã€åˆ¤æ–­é›†åˆä¸­æ˜¯å¦å…¨ä¸ä¸ºç©ºï¼š
 		List<String> matchList1 = new ArrayList<>();
 		matchList1.add("a");
 		matchList1.add("");
@@ -226,19 +226,19 @@ public class StreamTester {
 	
 	@Test
 	public void testReduce() {
-		/*reduce²Ù×÷¿ÉÒÔÊµÏÖ´ÓÒ»×éÔªËØÖĞÉú³ÉÒ»¸öÖµ£¬sum()¡¢max()¡¢min()¡¢count()µÈ¶¼ÊÇreduce²Ù×÷£¬½«ËûÃÇµ¥¶ÀÉèÎªº¯ÊıÖ»ÊÇÒòÎª³£ÓÃ¡£
-		 * reduce()µÄ·½·¨¶¨ÒåÓĞÈıÖÖÖØĞ´ĞÎÊ½£º
-		 		//±äĞÎ1£¬Î´¶¨Òå³õÊ¼Öµ£¬´Ó¶øµÚÒ»´ÎÖ´ĞĞµÄÊ±ºòµÚÒ»¸ö²ÎÊıµÄÖµÊÇStreamµÄµÚÒ»¸öÔªËØ£¬µÚ¶ş¸ö²ÎÊıÊÇStreamµÄµÚ¶ş¸öÔªËØ
+		/*reduceæ“ä½œå¯ä»¥å®ç°ä»ä¸€ç»„å…ƒç´ ä¸­ç”Ÿæˆä¸€ä¸ªå€¼ï¼Œsum()ã€max()ã€min()ã€count()ç­‰éƒ½æ˜¯reduceæ“ä½œï¼Œå°†ä»–ä»¬å•ç‹¬è®¾ä¸ºå‡½æ•°åªæ˜¯å› ä¸ºå¸¸ç”¨ã€‚
+		 * reduce()çš„æ–¹æ³•å®šä¹‰æœ‰ä¸‰ç§é‡å†™å½¢å¼ï¼š
+		 		//å˜å½¢1ï¼Œæœªå®šä¹‰åˆå§‹å€¼ï¼Œä»è€Œç¬¬ä¸€æ¬¡æ‰§è¡Œçš„æ—¶å€™ç¬¬ä¸€ä¸ªå‚æ•°çš„å€¼æ˜¯Streamçš„ç¬¬ä¸€ä¸ªå…ƒç´ ï¼Œç¬¬äºŒä¸ªå‚æ•°æ˜¯Streamçš„ç¬¬äºŒä¸ªå…ƒç´ 
 				Optional<T> reduce(BinaryOperator<T> accumulator) 
 				
-				//±äĞÎ2£¬¶¨ÒåÁË³õÊ¼Öµ£¬´Ó¶øµÚÒ»´ÎÖ´ĞĞµÄÊ±ºòµÚÒ»¸ö²ÎÊıµÄÖµÊÇ³õÊ¼Öµ£¬µÚ¶ş¸ö²ÎÊıÊÇStreamµÄµÚÒ»¸öÔªËØ
+				//å˜å½¢2ï¼Œå®šä¹‰äº†åˆå§‹å€¼ï¼Œä»è€Œç¬¬ä¸€æ¬¡æ‰§è¡Œçš„æ—¶å€™ç¬¬ä¸€ä¸ªå‚æ•°çš„å€¼æ˜¯åˆå§‹å€¼ï¼Œç¬¬äºŒä¸ªå‚æ•°æ˜¯Streamçš„ç¬¬ä¸€ä¸ªå…ƒç´ 
 				T reduce(T identity, BinaryOperator<T> accumulator)
 				
 				//
 				<U> U reduce(U identity, BiFunction<U,? super T,U> accumulator, BinaryOperator<U> combiner)
-		* ËäÈ»º¯Êı¶¨ÒåÔ½À´Ô½³¤£¬µ«ÓïÒå²»Ôø¸Ä±ä£¬¶àµÄ²ÎÊıÖ»ÊÇÎªÁËÖ¸Ã÷³õÊ¼Öµ£¨²ÎÊıidentity£©£¬
-		* »òÕßÊÇÖ¸¶¨²¢ĞĞÖ´ĞĞÊ±¶à¸ö²¿·Ö½á¹ûµÄºÏ²¢·½Ê½£¨²ÎÊıcombiner£©¡£reduce()×î³£ÓÃµÄ³¡¾°¾ÍÊÇ´ÓÒ»¶ÑÖµÖĞÉú³ÉÒ»¸öÖµ¡£
-		* ÓÃÕâÃ´¸´ÔÓµÄº¯ÊıÈ¥ÇóÒ»¸ö×î´ó»ò×îĞ¡Öµ£¬ÄãÊÇ²»ÊÇ¾õµÃÉè¼ÆÕßÓĞ²¡¡£ÆäÊµ²»È»£¬ÒòÎª¡°´ó¡±ºÍ¡°Ğ¡¡±»òÕß¡°ÇóºÍ¡±ÓĞÊ±»áÓĞ²»Í¬µÄÓïÒå
+		* è™½ç„¶å‡½æ•°å®šä¹‰è¶Šæ¥è¶Šé•¿ï¼Œä½†è¯­ä¹‰ä¸æ›¾æ”¹å˜ï¼Œå¤šçš„å‚æ•°åªæ˜¯ä¸ºäº†æŒ‡æ˜åˆå§‹å€¼ï¼ˆå‚æ•°identityï¼‰ï¼Œ
+		* æˆ–è€…æ˜¯æŒ‡å®šå¹¶è¡Œæ‰§è¡Œæ—¶å¤šä¸ªéƒ¨åˆ†ç»“æœçš„åˆå¹¶æ–¹å¼ï¼ˆå‚æ•°combinerï¼‰ã€‚reduce()æœ€å¸¸ç”¨çš„åœºæ™¯å°±æ˜¯ä»ä¸€å †å€¼ä¸­ç”Ÿæˆä¸€ä¸ªå€¼ã€‚
+		* ç”¨è¿™ä¹ˆå¤æ‚çš„å‡½æ•°å»æ±‚ä¸€ä¸ªæœ€å¤§æˆ–æœ€å°å€¼ï¼Œä½ æ˜¯ä¸æ˜¯è§‰å¾—è®¾è®¡è€…æœ‰ç—…ã€‚å…¶å®ä¸ç„¶ï¼Œå› ä¸ºâ€œå¤§â€å’Œâ€œå°â€æˆ–è€…â€œæ±‚å’Œâ€æœ‰æ—¶ä¼šæœ‰ä¸åŒçš„è¯­ä¹‰
 		*/
 		
 		Stream<String> stream = Stream.of("I", "lovedddd", "you", "too");
@@ -250,16 +250,16 @@ public class StreamTester {
 		Optional<String> max = stm.max((s1, s2) -> s1.length()-s2.length());
 		System.out.println(max.orElseGet(()->""));
 		
-		// Çóµ¥´Ê³¤¶ÈÖ®ºÍ
+		// æ±‚å•è¯é•¿åº¦ä¹‹å’Œ
 		Stream<String> stream1 = Stream.of("I", "love", "you", "too");
-		Integer lengthSum = stream1.reduce(0, // ³õÊ¼Öµ¡¡// (1)
-		        (sum, str) -> sum+str.length(), // ÀÛ¼ÓÆ÷ // (2)
-		        (a, b) -> a+b); // ²¿·ÖºÍÆ´½ÓÆ÷£¬²¢ĞĞÖ´ĞĞÊ±²Å»áÓÃµ½ // (3)
+		Integer lengthSum = stream1.reduce(0, // åˆå§‹å€¼ã€€// (1)
+		        (sum, str) -> sum+str.length(), // ç´¯åŠ å™¨ // (2)
+		        (a, b) -> a+b); // éƒ¨åˆ†å’Œæ‹¼æ¥å™¨ï¼Œå¹¶è¡Œæ‰§è¡Œæ—¶æ‰ä¼šç”¨åˆ° // (3)
 		// int lengthSum = stream.mapToInt(str -> str.length()).sum();
 		System.out.println(lengthSum);
 		
 		
-		//Çóµ¥´Ê³¤¶ÈÖ®ºÍ
+		//æ±‚å•è¯é•¿åº¦ä¹‹å’Œ
 		Stream<String> stream2 = Stream.of("I", "love", "you", "too");
 //		Integer s_m = stream2.parallel()
 		Integer s_m = stream2
@@ -285,7 +285,7 @@ public class StreamTester {
 	
 	@Test
 	public void testCollect() {
-		// ½«Stream×ª»»³ÉÈİÆ÷»òMap
+		// å°†Streamè½¬æ¢æˆå®¹å™¨æˆ–Map
 		Stream<String> stream = Stream.of("I", "love", "you", "too");
 		
 //		List<String> list = stream.collect(Collectors.toList()); // (1)

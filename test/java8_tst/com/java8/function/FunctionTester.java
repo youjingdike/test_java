@@ -4,19 +4,19 @@ import java.util.function.Function;
 
 public class FunctionTester {
 	public static void main(String[] args) {  
-        //¼òµ¥µÄ,Ö»ÓĞÒ»ĞĞ  
+        //ç®€å•çš„,åªæœ‰ä¸€è¡Œ  
         Function<String, String> function1 = (x) -> "result1: " + x;  
   
-        //±ê×¼µÄ,ÓĞ»¨À¨ºÅ, return, ·ÖºÅ.  
+        //æ ‡å‡†çš„,æœ‰èŠ±æ‹¬å·, return, åˆ†å·.  
         Function<String, String> function2 = (x) -> {  
             return "result2: " + x;  
         };  
   
         System.out.println(function1.apply("98")); 
         System.out.println();
-        System.out.println(function1.andThen(function2).apply("100"));//ÏÈÖ´ĞĞfunction1 È»ºó½«Æä½á¹û×÷Îª²ÎÊı´«µİµ½function2ÖĞ  
+        System.out.println(function1.andThen(function2).apply("100"));//å…ˆæ‰§è¡Œfunction1 ç„¶åå°†å…¶ç»“æœä½œä¸ºå‚æ•°ä¼ é€’åˆ°function2ä¸­  
         System.out.println();
-        System.out.println(function2.compose(function1).apply("102"));//ÏÈÖ´ĞĞfunction1 ÔÙÖ´ĞĞfunction2  
+        System.out.println(function2.compose(function1).apply("102"));//å…ˆæ‰§è¡Œfunction1 å†æ‰§è¡Œfunction2  
         System.out.println();
         System.out.println(Function.identity());  
     }  

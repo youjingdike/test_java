@@ -8,7 +8,7 @@ public class Test02 {
 	public static void main(String[] args) {  
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);  
   
-        //使用匿名函数形式  
+        //浣跨敤鍖垮悕鍑芥暟褰㈠紡  
         numbers.forEach(new Consumer<Integer>() {  
             @Override  
             public void accept(Integer integer) {  
@@ -17,7 +17,7 @@ public class Test02 {
         });  
   
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        //使用Lambda  
+        //浣跨敤Lambda  
         List<Integer> numbers2 = Arrays.asList(11, 21, 31, 41, 51, 61, 71, 81, 91, 110);  
         
         Consumer<Integer> consumer1=(x)-> System.out.println(x);  

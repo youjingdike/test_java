@@ -9,7 +9,7 @@ public class NashornTester {
 	
 	@Test
 	public void test() {
-		final String text = "Base64 finally in Java 8! ÄãºÃ";
+		final String text = "Base64 finally in Java 8! ä½ å¥½";
         
         final String encodedStr = Base64
             .getEncoder()
@@ -21,7 +21,7 @@ public class NashornTester {
             StandardCharsets.UTF_8 );
         System.out.println( decoded );
 
-        //Base64ÀàÍ¬Ê±»¹Ìá¹©ÁË¶ÔURL¡¢MIMEÓÑºÃµÄ±àÂëÆ÷Óë½âÂëÆ÷£¨Base64.getUrlEncoder() / Base64.getUrlDecoder(), Base64.getMimeEncoder() / Base64.getMimeDecoder()£©
+        //Base64ç±»åŒæ—¶è¿˜æä¾›äº†å¯¹URLã€MIMEå‹å¥½çš„ç¼–ç å™¨ä¸è§£ç å™¨ï¼ˆBase64.getUrlEncoder() / Base64.getUrlDecoder(), Base64.getMimeEncoder() / Base64.getMimeDecoder()ï¼‰
 		
 	}
 	

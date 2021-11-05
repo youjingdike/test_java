@@ -38,7 +38,7 @@ public class DateTester {
 		// Get the system clock as UTC offset 
 		final Clock clock = Clock.systemUTC();
 		System.out.println( clock.instant() );
-		System.out.println( clock.millis() );//¿ÉÒÔÌæ»»System.currentTimeMillis()
+		System.out.println( clock.millis() );//å¯ä»¥æ›¿æ¢System.currentTimeMillis()
 		
 		System.out.println( System.currentTimeMillis() );
 		System.out.println( TimeZone.getDefault() );

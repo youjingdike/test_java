@@ -16,7 +16,7 @@ public class Test03 {
         };
   
         raiseStudents(students, System.out::println);  
-        raiseStudents(students, raiser.andThen(System.out::println));//先执行raiser 然后再去执行输出操作  
+        raiseStudents(students, raiser.andThen(System.out::println));//鍏堟墽琛宺aiser 鐒跺悗鍐嶅幓鎵ц杈撳嚭鎿嶄綔  
     }  
   
     private static void raiseStudents(List<Student> employees,  

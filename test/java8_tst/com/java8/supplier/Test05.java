@@ -4,7 +4,7 @@ import java.util.function.BooleanSupplier;
 
 public class Test05 {
 	public static void main(String[] args) {  
-        BooleanSupplier bs = () -> true;//Ã»ÓĞ²ÎÊı  µ«ÊÇÓĞ·µ»Ø½á¹û  
+        BooleanSupplier bs = () -> true;//æ²¡æœ‰å‚æ•°  ä½†æ˜¯æœ‰è¿”å›ç»“æœ  
         System.out.println(bs.getAsBoolean());  
   
         int x = 0, y= 1;  

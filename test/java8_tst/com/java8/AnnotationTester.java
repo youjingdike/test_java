@@ -8,9 +8,9 @@ import java.lang.annotation.Target;
 
 public class AnnotationTester {
 	/*
-	 * ÕâÀïÓĞ¸öÊ¹ÓÃ@Repeatable( Filters.class )×¢½âµÄ×¢½âÀàFilter£¬Filters½ö½öÊÇFilter×¢½âµÄÊı×é£¬
-	 * µ«Java±àÒëÆ÷²¢²»ÏëÈÃ³ÌĞòÔ±ÒâÊ¶µ½FiltersµÄ´æÔÚ¡£
-	 * ÕâÑù£¬½Ó¿ÚFilterable¾ÍÓµÓĞÁËÁ½´ÎFilter£¨²¢Ã»ÓĞÌáµ½Filter£©×¢½â
+	 * è¿™é‡Œæœ‰ä¸ªä½¿ç”¨@Repeatable( Filters.class )æ³¨è§£çš„æ³¨è§£ç±»Filterï¼ŒFiltersä»…ä»…æ˜¯Filteræ³¨è§£çš„æ•°ç»„ï¼Œ
+	 * ä½†Javaç¼–è¯‘å™¨å¹¶ä¸æƒ³è®©ç¨‹åºå‘˜æ„è¯†åˆ°Filtersçš„å­˜åœ¨ã€‚
+	 * è¿™æ ·ï¼Œæ¥å£Filterableå°±æ‹¥æœ‰äº†ä¸¤æ¬¡Filterï¼ˆå¹¶æ²¡æœ‰æåˆ°Filterï¼‰æ³¨è§£
 	 */
 	@Target( ElementType.TYPE )
     @Retention( RetentionPolicy.RUNTIME )
@@ -32,8 +32,8 @@ public class AnnotationTester {
     
     public static void main(String[] args) {
     	/*
-    	 * ·´ÉäÏà¹ØµÄAPIÌá¹©ÁËĞÂµÄº¯ÊıgetAnnotationsByType()À´·µ»ØÖØ¸´×¢½âµÄÀàĞÍ
-    	 * £¨Çë×¢ÒâFilterable.class.getAnnotation( Filters.class )¾­±àÒëÆ÷´¦Àíºó½«»á·µ»ØFiltersµÄÊµÀı£©
+    	 * åå°„ç›¸å…³çš„APIæä¾›äº†æ–°çš„å‡½æ•°getAnnotationsByType()æ¥è¿”å›é‡å¤æ³¨è§£çš„ç±»å‹
+    	 * ï¼ˆè¯·æ³¨æ„Filterable.class.getAnnotation( Filters.class )ç»ç¼–è¯‘å™¨å¤„ç†åå°†ä¼šè¿”å›Filtersçš„å®ä¾‹ï¼‰
     	 */
         for( Filter filter: Filterable.class.getAnnotationsByType( Filter.class ) ) {
             System.out.println( filter.value() );

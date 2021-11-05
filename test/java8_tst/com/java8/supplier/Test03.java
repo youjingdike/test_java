@@ -4,7 +4,7 @@ import java.util.function.Supplier;
 
 public class Test03 {
 	private static Employee employee(Supplier<Employee> supplier){  
-        return supplier.get();  //ÔÚÃ»ÓĞĞ´¹¹Ôìº¯ÊıµÄÊ±ºò  ¾ÍĞèÒªÖØĞ´toString·½·¨  
+        return supplier.get();  //åœ¨æ²¡æœ‰å†™æ„é€ å‡½æ•°çš„æ—¶å€™  å°±éœ€è¦é‡å†™toStringæ–¹æ³•  
     }  
   
     public static void main(String[] args) {  

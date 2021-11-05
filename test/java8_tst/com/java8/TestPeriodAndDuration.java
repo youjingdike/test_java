@@ -7,10 +7,10 @@ import java.time.Period;
 import java.time.temporal.ChronoUnit;
 
 /**
- *  Period - ´¦ÀíÓĞ¹Ø»ùÓÚÊ±¼äµÄÈÕÆÚÊıÁ¿
- * 	Duration - ´¦ÀíÓĞ¹Ø»ùÓÚÊ±¼äµÄÊ±¼äÁ¿
+ *  Period - å¤„ç†æœ‰å…³åŸºäºæ—¶é—´çš„æ—¥æœŸæ•°é‡
+ * 	Duration - å¤„ç†æœ‰å…³åŸºäºæ—¶é—´çš„æ—¶é—´é‡
  * @author xq
- * @date 2018Äê5ÔÂ28ÈÕ
+ * @date 2018å¹´5æœˆ28æ—¥
  */
 public class TestPeriodAndDuration {
 	public static void main(String args[]){

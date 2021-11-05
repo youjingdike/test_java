@@ -4,7 +4,7 @@ import java.util.function.Supplier;
 
 public class Test01 {
 	public static void main(String[] args) {  
-        Supplier<String> supplier=()->"Supplier";//¶¨ÒåÁËÊä³ö½á¹û Òò´ËÃ»ÓĞ±ØÒªÖØĞ´toString()  
+        Supplier<String> supplier=()->"Supplier";//å®šä¹‰äº†è¾“å‡ºç»“æœ å› æ­¤æ²¡æœ‰å¿…è¦é‡å†™toString()  
         System.out.println(supplier.get());  
         
         SunPower power = new SunPower();

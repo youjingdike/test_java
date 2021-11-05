@@ -2,13 +2,13 @@ package com.java8.optional;
 
 import java.util.Optional;
 /**
- * Optional£º
- * 1.map()¿É¼¶Áªµ÷ÓÃ
- * 2.¾¡Á¿Ê¹ÓÃorElse(),orElseGet(),²»ÒªÊ¹ÓÃget(),Èç¹ûÒªÊ¹ÓÃget(),±ØĞëÏÈµ÷ÓÃisPresent();
- * 3.Optional ²»ÒªÓÃ×÷ÊôĞÔ»òÊÇ·½·¨²ÎÊı
- * 4.Optional Ö÷ÒªÓÃ×÷·µ»ØÀàĞÍ
+ * Optionalï¼š
+ * 1.map()å¯çº§è”è°ƒç”¨
+ * 2.å°½é‡ä½¿ç”¨orElse(),orElseGet(),ä¸è¦ä½¿ç”¨get(),å¦‚æœè¦ä½¿ç”¨get(),å¿…é¡»å…ˆè°ƒç”¨isPresent();
+ * 3.Optional ä¸è¦ç”¨ä½œå±æ€§æˆ–æ˜¯æ–¹æ³•å‚æ•°
+ * 4.Optional ä¸»è¦ç”¨ä½œè¿”å›ç±»å‹
  * @author xq
- * @date 2018Äê6ÔÂ30ÈÕ
+ * @date 2018å¹´6æœˆ30æ—¥
  */
 public class OptionalTester {
 	public static void main(String[] args) {

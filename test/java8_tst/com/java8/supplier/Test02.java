@@ -12,7 +12,7 @@ public class Test02 {
     public static void main(String[] args) {  
         SunPower power = new SunPower();  
   
-        SunPower p1 = produce(() -> power);//Ö»»á³õÊ¼»¯Ò»´Î Òò´ËÖ»»áÊä³öÒ»¸ö½á¹û  
+        SunPower p1 = produce(() -> power);//åªä¼šåˆå§‹åŒ–ä¸€æ¬¡ å› æ­¤åªä¼šè¾“å‡ºä¸€ä¸ªç»“æžœ  
         SunPower p2 = produce(() -> power);  
         SunPower p3 = produce(SunPower::new);  
   
