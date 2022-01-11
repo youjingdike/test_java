@@ -1,13 +1,14 @@
 package com.db;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Properties;
 
 import org.junit.Test;
-
-import com.db.DBUtil;
 
 public class TestDB {
     
@@ -35,5 +36,22 @@ public class TestDB {
         }
         System.out.println(i);
     }
-    
+
+    @Test
+    public void test1() {
+//          InputStream is=DBUtil.class.getClassLoader().getResourceAsStream("db.properties");
+            InputStream is=Thread.currentThread().getContextClassLoader().getResourceAsStream("kafka.properties");
+
+            //如果位于包下面的资源。则可以
+//          InputStream is=Thread.currentThread().getContextClassLoader().getResourceAsStream("com/bjsxt/jdbc/db.properties");
+            Properties properties = new Properties();
+            try {
+                properties.load(is);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        System.out.println(properties.getProperty("s"));
+    }
+
 }
